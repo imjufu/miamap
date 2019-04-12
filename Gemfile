@@ -41,6 +41,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
 gem 'bootstrap', '~> 4.3.1'
+# jQuery! For Rails! So great.
+gem 'jquery-rails'
 # Multitenancy for Rails and ActiveRecord
 gem 'apartment'
 

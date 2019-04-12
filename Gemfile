@@ -39,6 +39,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Multitenancy for Rails and ActiveRecord
+gem 'apartment'
+
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell
   gem 'pry-rails'

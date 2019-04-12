@@ -49,6 +49,7 @@ gem 'jquery-rails'
 gem 'apartment'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
+gem 'devise-i18n'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

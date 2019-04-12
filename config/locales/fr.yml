@@ -1,0 +1,5 @@
+fr:
+  project:
+    name: miamap
+  actions:
+    toggle_menu: Voir le menu

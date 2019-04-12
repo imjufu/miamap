@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>Miamap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= (content_for?(:title) ? content_for(:title) + ' / ' : '') + t('project.name') %></title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <%= render 'shared/navbar' %>
     <%= yield %>
   </body>
 </html>

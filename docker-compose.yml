@@ -1,0 +1,11 @@
+version: "2"
+services:
+  db:
+    image: postgres:10.4
+    ports:
+      - "15432:5432"
+    environment:
+      - POSTGRES_USER=miamap_development
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data

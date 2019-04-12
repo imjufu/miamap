@@ -42,6 +42,17 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell
   gem 'pry-rails'
+  # rspec-rails is a testing framework for Rails
+  gem 'rspec-rails'
+  # factory_bot is a fixtures replacement with a straightforward
+  # definition syntax
+  gem 'factory_bot_rails'
+  # Faker is a library that generates fake data
+  gem 'faker'
+  # A gem providing "time travel" and "time freezing" capabilities
+  gem 'timecop'
+  # Library for stubbing and setting expectations on HTTP requests
+  gem 'webmock'
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

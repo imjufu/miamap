@@ -59,6 +59,8 @@ group :development, :test do
 end
 
 group :development do
+  # Preview email in the default browser instead of sending it
+  gem 'letter_opener'
   # RuboCop is a Ruby static code analyzer
   gem 'rubocop'
   gem 'rubocop-performance'

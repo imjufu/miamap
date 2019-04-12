@@ -45,6 +45,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 # Multitenancy for Rails and ActiveRecord
 gem 'apartment'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

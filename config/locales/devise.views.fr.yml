@@ -1,0 +1,5 @@
+fr:
+  devise:
+    shared:
+      links:
+        sign_out_html: <i class="fas fa-sign-out-alt"></i> Déconnexion

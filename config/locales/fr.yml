@@ -1,6 +1,7 @@
 fr:
   project:
     name: miamap
+    welcome: Bienvenue, %{user}
   actions:
     toggle_menu: Voir le menu
   errors:

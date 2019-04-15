@@ -58,6 +58,8 @@ gem 'kaminari-i18n'
 # ActiveRecord plugin allowing you to hide and restore records without
 # actually deleting them.
 gem 'paranoia'
+# The authorization Gem for Ruby on Rails
+gem 'cancancan'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

@@ -22,7 +22,7 @@ Apartment.configure do |config|
   # A typical example would be a Customer or Tenant model that stores each
   # Tenant's information.
   #
-  # config.excluded_models = %w{ Tenant }
+  config.excluded_models = %w[Organization]
 
   # In order to migrate all of your Tenants you need to provide a list of
   # Tenant names to Apartment.
@@ -121,5 +121,5 @@ end
 
 # Rails.application.config.middleware.use Apartment::Elevators::Domain
 # Rails.application.config.middleware.use Apartment::Elevators::Subdomain
-Rails.application.config.middleware.use Apartment::Elevators::FirstSubdomain
+Rails.application.config.middleware.insert_before Warden::Manager, Apartment::Elevators::FirstSubdomain # rubocop:disable Metrics/LineLength
 # Rails.application.config.middleware.use Apartment::Elevators::Host

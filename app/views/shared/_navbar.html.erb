@@ -6,14 +6,18 @@
   <% if user_signed_in? %>
   <div class="navbar-collapse collapse" id="navbars">
     <ul class="navbar-nav mr-auto">
+      <% links = [] %>
+      <% links << link_to(t('navbar.users'), users_path, class: 'dropdown-item') if can? :read, User %>
+      <% if links.present? %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="adminMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= t('navbar.administration') %>
         </a>
         <div class="dropdown-menu" aria-labelledby="adminMenuLink">
-          <%= link_to(t('navbar.users'), users_path, class: 'dropdown-item') %>
+          <%= safe_join links %>
         </div>
       </li>
+      <% end %>
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item dropdown">

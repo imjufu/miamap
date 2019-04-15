@@ -10,7 +10,13 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
+  delegate :admin?, to: :profile
+
   def full_name
     "#{first_name.capitalize} #{last_name.upcase}"
+  end
+
+  def profile
+    Profile.new(super)
   end
 end

@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center mb-3">
   <h1 class="h1 mr-2"><%= t('users.list') %></h1>
-  <%= link_to t('users.new'), new_user_path, class: 'btn btn-primary' %>
+  <%= link_to(t('users.new'), new_user_path, class: 'btn btn-primary') if can? :create, User %>
 </div>
 
 <table class="table table-sm">

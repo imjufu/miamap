@@ -26,7 +26,7 @@ class Ability
     send("#{user.profile}_abilities", user)
   end
 
-  def level_0_abilities(user)
+  def level_0_abilities(_user)
     can :read, :all
   end
 end

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject { Profile.new profile }
-  let(:profile) { }
+  let(:profile) {}
 
   describe '#admin?' do
     it 'returns false' do

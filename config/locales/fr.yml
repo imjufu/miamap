@@ -3,3 +3,8 @@ fr:
     name: miamap
   actions:
     toggle_menu: Voir le menu
+  errors:
+    messages:
+      saving_failed:
+        one: Une erreur empêche l'enregistrement
+        other: "%{count} erreurs empêchent l'enregistrement"

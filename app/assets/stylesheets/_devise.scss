@@ -1,0 +1,35 @@
+.form-signin,
+.form-lost-password,
+.form-confirmation,
+.form-unlock {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin {
+  input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.form-lost-password,
+.form-confirmation,
+.form-unlock {
+  input[type="email"] {
+    margin-bottom: 10px;
+  }
+
+  input[type="submit"] {
+    white-space: normal;
+  }
+}

@@ -55,6 +55,9 @@ gem 'devise-i18n'
 # paginator for modern web app frameworks and ORMs
 gem 'kaminari'
 gem 'kaminari-i18n'
+# ActiveRecord plugin allowing you to hide and restore records without
+# actually deleting them.
+gem 'paranoia'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

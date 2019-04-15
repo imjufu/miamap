@@ -22,7 +22,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -34,12 +34,12 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  # config.use_transactional_fixtures = true
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -60,4 +60,36 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include RequestSpecHelper, type: :request
+  config.extend RequestSubdomainHelper, type: :request
+
+  config.before(:suite) do
+    # Clean all tables to start
+    DatabaseCleaner.clean_with :truncation
+    # Use transactions for tests
+    DatabaseCleaner.strategy = :transaction
+
+    # rubocop:disable Style/RescueModifier
+    Apartment::Tenant.drop('guillamap') rescue nil
+    # rubocop:enable Style/RescueModifier
+
+    # Create the default tenant for our tests
+    FactoryBot.create(:organization, subdomain: 'guillamap')
+    Apartment::Tenant.create('guillamap')
+  end
+
+  config.before(:each) do
+    # Start transaction for this test
+    DatabaseCleaner.start
+    # Switch to the default tenant database
+    Apartment::Tenant.switch! 'guillamap'
+  end
+
+  config.after(:each) do
+    # Reset tentant back to `public`
+    Apartment::Tenant.reset
+    # Rollback transaction
+    DatabaseCleaner.clean
+  end
 end

@@ -1,0 +1,11 @@
+<% if errors.any? %>
+  <div class="alert alert-warning" role="alert">
+    <p class="alert-heading"><strong><%= t('errors.messages.saving_failed', count: errors.count) %></strong></p>
+    <hr />
+    <ul>
+    <% errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

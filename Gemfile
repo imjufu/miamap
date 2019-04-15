@@ -51,6 +51,13 @@ gem 'apartment'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 gem 'devise-i18n'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated
+# paginator for modern web app frameworks and ORMs
+gem 'kaminari'
+gem 'kaminari-i18n'
+# ActiveRecord plugin allowing you to hide and restore records without
+# actually deleting them.
+gem 'paranoia'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell
@@ -66,6 +73,8 @@ group :development, :test do
   gem 'timecop'
   # Library for stubbing and setting expectations on HTTP requests
   gem 'webmock'
+  # Database Cleaner is a set of strategies for cleaning your database in Ruby.
+  gem 'database_cleaner'
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

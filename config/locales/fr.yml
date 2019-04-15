@@ -3,9 +3,22 @@ fr:
     name: miamap
     welcome: Bienvenue, %{user}
   actions:
+    save: Enregistrer
+    edit: Modifier
+    close: Fermer
+    delete: Supprimer
     toggle_menu: Voir le menu
+    back_to_the_list: Retour à la liste
+    cancel: Annuler
+    sure?: Êtes-vous sûr·e ?
+  navbar:
+    administration: Administration
+    users: Utilisateur·rice·s
   errors:
     messages:
       saving_failed:
         one: Une erreur empêche l'enregistrement
         other: "%{count} erreurs empêchent l'enregistrement"
+  users:
+    list: Utilisateur·rice·s
+    new: Nouvel·le utilisateur·rice

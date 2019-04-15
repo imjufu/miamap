@@ -6,8 +6,13 @@
   <% if user_signed_in? %>
   <div class="navbar-collapse collapse" id="navbars">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="adminMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= t('navbar.administration') %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="adminMenuLink">
+          <%= link_to(t('navbar.users'), users_path, class: 'dropdown-item') %>
+        </div>
       </li>
     </ul>
     <ul class="navbar-nav">

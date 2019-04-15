@@ -70,6 +70,8 @@ group :development, :test do
   gem 'timecop'
   # Library for stubbing and setting expectations on HTTP requests
   gem 'webmock'
+  # Database Cleaner is a set of strategies for cleaning your database in Ruby.
+  gem 'database_cleaner'
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

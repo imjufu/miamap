@@ -51,6 +51,10 @@ gem 'apartment'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 gem 'devise-i18n'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for
+# modern web app frameworks and ORMs
+gem 'kaminari'
+gem 'kaminari-i18n'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

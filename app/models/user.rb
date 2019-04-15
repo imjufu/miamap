@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  acts_as_paranoid
+
   # Include default devise modules. Others available are:
   # :registerable and :omniauthable
   devise :database_authenticatable, :confirmable, :lockable, :trackable,

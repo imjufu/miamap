@@ -1,0 +1,49 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @user.full_name %></h1>
+  <%= link_to t('actions.edit'), edit_user_path(@user), class: 'btn btn-primary' %>
+  <%= link_to t('actions.back_to_the_list'), users_path, class: 'btn btn-light' %>
+</div>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Profil</a>
+    <a class="nav-item nav-link" id="nav-security-tab" data-toggle="tab" href="#nav-security" role="tab" aria-controls="nav-security" aria-selected="true">Sécurité</a>
+  </div>
+</nav>
+
+<div class="tab-content mt-3" id="nav-tabContent">
+  <div class="tab-pane show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <dl class="row">
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.email') %></dt>
+      <dd class="col-sm-9"><%= @user.email %></dd>
+      <% if @user.unconfirmed_email? %>
+      <dt class="col-sm-3 text-muted"><%= t('activerecord.attributes.user.unconfirmed_email') %></dt>
+      <dd class="col-sm-9 text-muted"><%= @user.unconfirmed_email %></dd>
+      <% end %>
+    </dl>
+  </div>
+  <div class="tab-pane show" id="nav-security" role="tabpanel" aria-labelledby="nav-security-tab">
+    <dl class="row">
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.sign_in_count') %></dt>
+      <dd class="col-sm-9"><%= @user.sign_in_count %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.failed_attempts') %></dt>
+      <dd class="col-sm-9"><%= @user.failed_attempts %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.current_sign_in_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @user.current_sign_in_at %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.current_sign_in_ip') %></dt>
+      <dd class="col-sm-9"><%= @user.current_sign_in_ip %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.last_sign_in_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @user.last_sign_in_at %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.last_sign_in_ip') %></dt>
+      <dd class="col-sm-9"><%= @user.last_sign_in_ip %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.locked_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @user.locked_at %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.confirmed_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @user.confirmed_at %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.updated_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @user.updated_at %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.user.created_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @user.created_at %></dd>
+    </dl>
+  </div>
+</div>

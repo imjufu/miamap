@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center mb-3">
   <h1 class="h1 mr-2"><%= @user.full_name %></h1>
-  <%= link_to t('actions.edit'), edit_user_path(@user), class: 'btn btn-primary' %>
-  <%= link_to t('actions.delete'), @user, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger' %>
+  <%= link_to(t('actions.edit'), edit_user_path(@user), class: 'btn btn-primary') if can? :update, @user %>
+  <%= link_to(t('actions.delete'), @user, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @user %>
   <%= link_to t('actions.back_to_the_list'), users_path, class: 'ml-1 btn btn-light' %>
 </div>
 

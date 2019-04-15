@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  let(:user) { FactoryBot.create(:user, admin: true) }
+  let(:user) { FactoryBot.create(:user, profile: Profile::ADMIN) }
   let(:params) { FactoryBot.attributes_for(:user) }
 
   within_subdomain 'guillamap' do

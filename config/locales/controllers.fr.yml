@@ -4,5 +4,5 @@ fr:
       created: "Utilisateur·rice créé·e."
     update:
       updated: "Utilisateur·rice modifié·e."
-    deactivate:
-      deactivated: "Utilisateur·rice supprimé·e."
+    destroy:
+      destroyed: "Utilisateur·rice supprimé·e."

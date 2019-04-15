@@ -6,9 +6,11 @@ fr:
     save: Enregistrer
     edit: Modifier
     close: Fermer
+    delete: Supprimer
     toggle_menu: Voir le menu
     back_to_the_list: Retour à la liste
     cancel: Annuler
+    sure?: Êtes-vous sûr·e ?
   navbar:
     administration: Administration
     users: Utilisateur·rice·s

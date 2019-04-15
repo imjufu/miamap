@@ -147,24 +147,24 @@ RSpec.describe 'Users', type: :request do
       end
     end
 
-    # describe 'PUT /users/1/deactivate' do
-    #   let(:action) { put "/users/#{user.id}/deactivate" }
+    describe 'DELETE /users/1' do
+      let(:action) { delete "/users/#{user.id}" }
 
-    #   it_behaves_like 'a private action'
+      it_behaves_like 'a private action'
 
-    #   context 'when the user is logged in as a user' do
-    #     before do
-    #       user
-    #       sign_in(user)
-    #     end
+      context 'when the user is logged in as a user' do
+        before do
+          user
+          sign_in(user)
+        end
 
-    #     it 'deactivates the user' do
-    #       expect do
-    #         action
-    #         user.reload
-    #       end.to change(user, :deactivated?).from(false).to(true)
-    #     end
-    #   end
-    # end
+        it 'deletes the user' do
+          expect do
+            action
+            user.reload
+          end.to change(user, :deleted?).from(false).to(true)
+        end
+      end
+    end
   end
 end

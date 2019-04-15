@@ -1,5 +1,11 @@
 fr:
   project:
     name: miamap
+    welcome: Bienvenue, %{user}
   actions:
     toggle_menu: Voir le menu
+  errors:
+    messages:
+      saving_failed:
+        one: Une erreur empêche l'enregistrement
+        other: "%{count} erreurs empêchent l'enregistrement"

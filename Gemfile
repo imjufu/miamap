@@ -39,12 +39,18 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami (formerly Lotus).
+# Centralization of locale data collection for Ruby on Rails.
+gem 'rails-i18n'
+# Bootstrap 4 ruby gem for Ruby on Rails (Sprockets) and Hanami
+# (formerly Lotus).
 gem 'bootstrap', '~> 4.3.1'
 # jQuery! For Rails! So great.
 gem 'jquery-rails'
 # Multitenancy for Rails and ActiveRecord
 gem 'apartment'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
+gem 'devise-i18n'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

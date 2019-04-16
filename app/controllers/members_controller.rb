@@ -74,7 +74,8 @@ class MembersController < ApplicationController
   # the white list through.
   def member_params
     params.require(:member).permit(
-      :first_name, :last_name, :email_address, :address, :postal_code, :city, :date_of_birth
+      :first_name, :last_name, :email_address, :address, :postal_code,
+      :city, :date_of_birth
     )
   end
 end

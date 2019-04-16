@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('farmers.list') %></h1>
+  <%= link_to(t('farmers.new'), new_farmer_path, class: 'btn btn-primary') if can? :create, Farmer %>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t('activerecord.attributes.farmer.email_address') %></th>
+      <th><%= t('activerecord.attributes.farmer.postal_code') %></th>
+      <th><%= t('activerecord.attributes.farmer.city') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @farmers.each do |farmer| %>
+      <tr>
+        <td><%= link_to farmer.name, farmer %></td>
+        <td><%= farmer.email_address %></td>
+        <td><%= farmer.postal_code %></td>
+        <td><%= farmer.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @farmers %>

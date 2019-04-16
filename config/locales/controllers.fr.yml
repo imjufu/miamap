@@ -13,3 +13,10 @@ fr:
       updated: "Membre modifié·e."
     destroy:
       destroyed: "Membre supprimé·e."
+  farmers:
+    create:
+      created: "Paysan·ne créé·e."
+    update:
+      updated: "Paysan·ne modifié·e."
+    destroy:
+      destroyed: "Paysan·ne supprimé·e."

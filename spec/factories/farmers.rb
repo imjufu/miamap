@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :farmer do
     name { Faker::Company.name }
+    email_address { Faker::Internet.email }
     address { Faker::Address.street_address }
     postal_code { Faker::Address.postcode }
     city { Faker::Address.city }

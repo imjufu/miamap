@@ -17,3 +17,9 @@ fr:
         address: Adresse
         postal_code: Code postal
         city: Ville
+      farmer:
+        email_address: Courriel
+        name: Nom
+        address: Adresse
+        postal_code: Code postal
+        city: Ville

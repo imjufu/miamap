@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @farmer.name %></h1>
+  <%= link_to(t('actions.edit'), edit_farmer_path(@farmer), class: 'btn btn-primary') if can? :update, @farmer %>
+  <%= link_to(t('actions.delete'), @farmer, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @farmer %>
+  <%= link_to t('actions.back_to_the_list'), farmers_path, class: 'ml-1 btn btn-light' %>
+</div>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true"><%= t('farmers.profile') %></a>
+  </div>
+</nav>
+
+<div class="tab-content mt-3" id="nav-tabContent">
+  <div class="tab-pane show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <dl class="row">
+      <dt class="col-sm-3"><%= t('activerecord.attributes.farmer.email_address') %></dt>
+      <dd class="col-sm-9"><%= @farmer.email_address %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.farmer.address') %></dt>
+      <dd class="col-sm-9"><%= @farmer.address %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.farmer.postal_code') %></dt>
+      <dd class="col-sm-9"><%= @farmer.postal_code %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.farmer.city') %></dt>
+      <dd class="col-sm-9"><%= @farmer.city %></dd>
+    </dl>
+  </div>
+</div>

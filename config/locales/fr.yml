@@ -14,6 +14,7 @@ fr:
   navbar:
     administration: Administration
     users: Utilisateur·rice·s
+    members: Membres
   errors:
     messages:
       saving_failed:
@@ -22,3 +23,9 @@ fr:
   users:
     list: Utilisateur·rice·s
     new: Nouvel·le utilisateur·rice
+    profile: Profil
+    security: Sécurité
+  members:
+    profile: Profil
+    list: Membres
+    new: Nouveau·lle membre

@@ -1,8 +1,19 @@
 fr:
   activerecord:
+    errors:
+      messages:
+        not_a_date: n'est pas une date valide
     attributes:
       user:
         email: Courriel
         first_name: Prénom
         last_name: Nom
         password: Mot de passe
+      member:
+        email_address: Courriel
+        first_name: Prénom
+        date_of_birth: Date de naissance
+        last_name: Nom
+        address: Adresse
+        postal_code: Code postal
+        city: Ville

@@ -23,3 +23,6 @@ fr:
         address: Adresse
         postal_code: Code postal
         city: Ville
+      contract:
+        title: Titre
+        content: Contenu

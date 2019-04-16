@@ -9,6 +9,7 @@ fr:
     delete: Supprimer
     toggle_menu: Voir le menu
     back_to_the_list: Retour à la liste
+    back: Retour
     cancel: Annuler
     sure?: Êtes-vous sûr·e ?
   navbar:
@@ -34,3 +35,6 @@ fr:
     profile: Profil
     list: Paysan·ne·s
     new: Nouveau·lle paysan·ne
+    contracts: Contrats
+  contracts:
+    new: Nouveau contrat

@@ -8,6 +8,7 @@
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true"><%= t('farmers.profile') %></a>
+    <a class="nav-item nav-link" id="nav-contracts-tab" data-toggle="tab" href="#nav-contracts" role="tab" aria-controls="nav-contracts" aria-selected="true"><%= t('farmers.contracts') %></a>
   </div>
 </nav>
 
@@ -23,5 +24,22 @@
       <dt class="col-sm-3"><%= t('activerecord.attributes.farmer.city') %></dt>
       <dd class="col-sm-9"><%= @farmer.city %></dd>
     </dl>
+  </div>
+  <div class="tab-pane show" id="nav-contracts" role="tabpanel" aria-labelledby="nav-contracts-tab">
+    <%= link_to(t('contracts.new'), new_farmer_contract_path(farmer_id: @farmer.id), class: 'mb-2 btn btn-primary') if can? :create, Contract %>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.contract.title') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @farmer.contracts.each do |contract| %>
+          <tr>
+            <td><%= link_to contract.title, farmer_contract_path(id: contract.id, farmer_id: contract.farmer_id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

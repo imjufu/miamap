@@ -1,0 +1,8 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @contract.title %></h1>
+  <%= link_to(t('actions.edit'), edit_farmer_contract_path(id: @contract.id, farmer_id: @contract.farmer_id), class: 'btn btn-primary') if can? :update, @contract %>
+  <%= link_to(t('actions.delete'), farmer_contract_path(id: @farmer.id, farmer_id: @contract.farmer_id), method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @contract %>
+  <%= link_to t('actions.back'), @contract.farmer, class: 'ml-1 btn btn-light' %>
+</div>
+
+<%= @contract.content %>

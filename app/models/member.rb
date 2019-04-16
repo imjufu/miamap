@@ -5,7 +5,9 @@ class Member < ApplicationRecord
 
   validates :first_name, :last_name, :address, :city, presence: true
   validates :email_address, email: true
-  validates :date_of_birth, date: { before: -> (record) { Time.now } }
+  validates :date_of_birth, date: {
+    before: ->(_record) { Time.now.in_time_zone }
+  }
   validates :postal_code, postal_code: { country: :fr }
 
   def full_name

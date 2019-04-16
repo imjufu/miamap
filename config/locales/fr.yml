@@ -15,6 +15,7 @@ fr:
     administration: Administration
     users: Utilisateur·rice·s
     members: Membres
+    farmers: Paysan·ne·s
   errors:
     messages:
       saving_failed:
@@ -29,3 +30,7 @@ fr:
     profile: Profil
     list: Membres
     new: Nouveau·lle membre
+  farmers:
+    profile: Profil
+    list: Paysan·ne·s
+    new: Nouveau·lle paysan·ne

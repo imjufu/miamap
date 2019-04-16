@@ -6,3 +6,10 @@ fr:
       updated: "Utilisateur·rice modifié·e."
     destroy:
       destroyed: "Utilisateur·rice supprimé·e."
+  members:
+    create:
+      created: "Membre créé·e."
+    update:
+      updated: "Membre modifié·e."
+    destroy:
+      destroyed: "Membre supprimé·e."

@@ -1,0 +1,6 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('members.new') %></h1>
+  <%= link_to t('actions.back_to_the_list'), members_path, class: 'btn btn-light' %>
+</div>
+
+<%= render 'form', member: @member %>

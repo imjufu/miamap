@@ -60,6 +60,9 @@ gem 'kaminari-i18n'
 gem 'paranoia'
 # The authorization Gem for Ruby on Rails
 gem 'cancancan'
+# ActiveValidators is a collection of off-the-shelf and tested
+# ActiveModel/ActiveRecord validations.
+gem 'activevalidators'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

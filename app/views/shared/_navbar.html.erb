@@ -6,6 +6,9 @@
   <% if user_signed_in? %>
   <div class="navbar-collapse collapse" id="navbars">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to t('navbar.members'), members_path, class: 'nav-link' if can? :read, Member %>
+      </li>
       <% links = [] %>
       <% links << link_to(t('navbar.users'), users_path, class: 'dropdown-item') if can? :read, User %>
       <% if links.present? %>

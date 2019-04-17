@@ -3,6 +3,8 @@
 class Member < ApplicationRecord
   acts_as_paranoid
 
+  has_many :subscriptions, dependent: :destroy
+
   validates :first_name, :last_name, :address, :city, presence: true
   validates :email_address, email: true
   validates :date_of_birth, date: {

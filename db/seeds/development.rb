@@ -12,10 +12,16 @@ if Apartment::Tenant.current == 'public'
     Apartment::Tenant.create(organization.subdomain)
   end
 else
-  unless User.find_by(email: 'john@guillamap.local')
-    user = FactoryBot.create(:user, email: 'john@guillamap.local', password: password)
+  unless User.find_by(email: 'yoda@guillamap.local')
+    user = FactoryBot.create(:user, email: 'yoda@guillamap.local', password: password, profile: Profile::ADMIN)
     puts "-- create a user"
     puts "   -> email: #{user.email}"
     puts "   -> password: #{password}"
+  end
+
+  unless Member.find_by(email_address: 'luc@guillamap.local')
+    member = FactoryBot.create(:member, email_address: 'luc@guillamap.local')
+    puts "-- create a member"
+    puts "   -> email_address: #{member.email_address}"
   end
 end

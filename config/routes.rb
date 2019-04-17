@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :members
   resources :farmers do
-    resources :contracts
+    resources :contracts, except: %i[index]
   end
   root to: 'welcome#index'
 end

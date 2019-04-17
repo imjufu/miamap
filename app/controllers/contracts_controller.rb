@@ -4,12 +4,6 @@ class ContractsController < ApplicationController
   load_and_authorize_resource :farmer
   load_and_authorize_resource :contract, through: :farmer
 
-  # GET /farmers/1/contracts
-  # GET /farmers/1/contracts.json
-  def index
-    @contracts = @farmer.contracts.order(:title).page
-  end
-
   # GET /farmers/1/contracts/1
   # GET /farmers/1/contracts/1.json
   def show

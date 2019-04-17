@@ -14,26 +14,26 @@ fr:
     sure?: Êtes-vous sûr·e ?
   navbar:
     administration: Administration
-    users: Utilisateur·rice·s
+    users: Utilisateur·trices
     members: Membres
-    farmers: Paysan·ne·s
+    farmers: Paysan·nes
   errors:
     messages:
       saving_failed:
         one: Une erreur empêche l'enregistrement
         other: "%{count} erreurs empêchent l'enregistrement"
   users:
-    list: Utilisateur·rice·s
-    new: Nouvel·le utilisateur·rice
+    list: Utilisateur·trices
+    new: Nouvel·le utilisateur·trice
     profile: Profil
     security: Sécurité
   members:
     profile: Profil
     list: Membres
-    new: Nouveau·lle membre
+    new: Nouveau·velle membre
   farmers:
     profile: Profil
-    list: Paysan·ne·s
+    list: Paysan·nes
     new: Nouveau·lle paysan·ne
     contracts: Contrats
   contracts:

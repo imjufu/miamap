@@ -1,11 +1,11 @@
 fr:
   users:
     create:
-      created: "Utilisateur·rice créé·e."
+      created: "Utilisateur·trice créé·e."
     update:
-      updated: "Utilisateur·rice modifié·e."
+      updated: "Utilisateur·trice modifié·e."
     destroy:
-      destroyed: "Utilisateur·rice supprimé·e."
+      destroyed: "Utilisateur·trice supprimé·e."
   members:
     create:
       created: "Membre créé·e."

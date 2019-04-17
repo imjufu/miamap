@@ -31,7 +31,7 @@ class ContractsController < ApplicationController
 
     respond_to do |format|
       if @contract.save
-        format.html { redirect_to @farmer, notice: t('.created') }
+        format.html { redirect_to farmer_contract_path(id: @contract.id, farmer_id: @farmer.id), notice: t('.created') } # rubocop:disable Metrics/LineLength
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ContractsController < ApplicationController
   def update
     respond_to do |format|
       if @contract.update(contract_params)
-        format.html { redirect_to @farmer, notice: t('.updated') }
+        format.html { redirect_to farmer_contract_path(id: @contract.id, farmer_id: @farmer.id), notice: t('.updated') } # rubocop:disable Metrics/LineLength
         format.json { render :show, status: :ok, location: @contract }
       else
         format.html { render :edit }

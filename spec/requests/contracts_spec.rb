@@ -53,7 +53,9 @@ RSpec.describe 'Contracts', type: :request do
 
     describe 'POST /farmers/1/contracts' do
       let(:params) { FactoryBot.attributes_for(:contract) }
-      let(:action) { post "/farmers/#{farmer.id}/contracts", params: { contract: params } }
+      let(:action) do
+        post "/farmers/#{farmer.id}/contracts", params: { contract: params }
+      end
 
       it_behaves_like 'a private action'
 
@@ -74,7 +76,9 @@ RSpec.describe 'Contracts', type: :request do
 
         context 'with invalid params' do
           it 'displays an error' do
-            post "/farmers/#{farmer.id}/contracts", params: { contract: { title: '' } }
+            post "/farmers/#{farmer.id}/contracts", params: {
+              contract: { title: '' }
+            }
             expect(response.body).to match('Titre doit être rempli')
           end
         end
@@ -106,7 +110,11 @@ RSpec.describe 'Contracts', type: :request do
 
     describe 'PUT/PATCH /farmers/1/contracts/1' do
       let(:params) { { id: contract.id, title: 'Été 2019' } }
-      let(:action) { put "/farmers/#{farmer.id}/contracts/#{contract.id}", params: { contract: params } }
+      let(:action) do
+        put "/farmers/#{farmer.id}/contracts/#{contract.id}", params: {
+          contract: params
+        }
+      end
 
       it_behaves_like 'a private action'
 

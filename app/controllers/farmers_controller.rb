@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FarmersController < ApplicationController
-  before_action :set_farmer, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
   # GET /farmers
   # GET /farmers.json
@@ -64,11 +64,6 @@ class FarmersController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_farmer
-    @farmer = Farmer.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow
   # the white list through.

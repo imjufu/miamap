@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :members
-  resources :farmers
+  resources :farmers do
+    resources :contracts, except: %i[index]
+  end
   root to: 'welcome#index'
 end

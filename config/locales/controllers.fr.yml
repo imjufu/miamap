@@ -20,3 +20,10 @@ fr:
       updated: "Paysan·ne modifié·e."
     destroy:
       destroyed: "Paysan·ne supprimé·e."
+  contracts:
+    create:
+      created: "Contrat créé."
+    update:
+      updated: "Contrat modifié."
+    destroy:
+      destroyed: "Contrat supprimé."

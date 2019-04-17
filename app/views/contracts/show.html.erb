@@ -5,4 +5,8 @@
   <%= link_to t('actions.back'), @contract.farmer, class: 'ml-1 btn btn-light' %>
 </div>
 
-<%= @contract.content %>
+<div class="card">
+  <div class="card-body">
+    <%= sanitize @contract.content, scrubber: ContractScrubber.new %>
+  </div>
+</div>

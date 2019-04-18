@@ -7,6 +7,6 @@ class Subscription < ApplicationRecord
   belongs_to :contract
 
   validates :member_accepted_at, date: true, allow_nil: true
-  validates :farmer_accepted_at, date: true, allow_nil: true
+  validates :producer_accepted_at, date: true, allow_nil: true
   validates :subscribed_at, date: true
 end

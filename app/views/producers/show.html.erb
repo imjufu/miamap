@@ -1,0 +1,45 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @producer.name %></h1>
+  <%= link_to(t('actions.edit'), edit_producer_path(@producer), class: 'btn btn-primary') if can? :update, @producer %>
+  <%= link_to(t('actions.delete'), @producer, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @producer %>
+  <%= link_to t('actions.back_to_the_list'), producers_path, class: 'ml-1 btn btn-light' %>
+</div>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true"><%= t('producers.profile') %></a>
+    <a class="nav-item nav-link" id="nav-contracts-tab" data-toggle="tab" href="#nav-contracts" role="tab" aria-controls="nav-contracts" aria-selected="true"><%= t('producers.contracts') %></a>
+  </div>
+</nav>
+
+<div class="tab-content mt-3" id="nav-tabContent">
+  <div class="tab-pane show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <dl class="row">
+      <dt class="col-sm-3"><%= t('activerecord.attributes.producer.email_address') %></dt>
+      <dd class="col-sm-9"><%= @producer.email_address %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.producer.address') %></dt>
+      <dd class="col-sm-9"><%= @producer.address %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.producer.postal_code') %></dt>
+      <dd class="col-sm-9"><%= @producer.postal_code %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.producer.city') %></dt>
+      <dd class="col-sm-9"><%= @producer.city %></dd>
+    </dl>
+  </div>
+  <div class="tab-pane show" id="nav-contracts" role="tabpanel" aria-labelledby="nav-contracts-tab">
+    <%= link_to(t('contracts.new'), new_producer_contract_path(producer_id: @producer.id), class: 'mb-2 btn btn-primary') if can? :create, Contract %>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.contract.title') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @producer.contracts.each do |contract| %>
+          <tr>
+            <td><%= link_to contract.title, producer_contract_path(id: contract.id, producer_id: contract.producer_id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

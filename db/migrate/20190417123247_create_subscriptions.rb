@@ -5,7 +5,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.2]
       t.references :contract, foreign_key: true
       t.datetime :subscribed_at, null: false
       t.datetime :member_accepted_at
-      t.datetime :farmer_accepted_at
+      t.datetime :producer_accepted_at
 
       t.timestamps
     end

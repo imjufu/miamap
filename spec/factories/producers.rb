@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :farmer do
+  factory :producer do
     name { Faker::Company.name }
     email_address { Faker::Internet.email }
     address { Faker::Address.street_address }

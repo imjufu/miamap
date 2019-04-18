@@ -2,13 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Farmers', type: :request do
+RSpec.describe 'Producers', type: :request do
   let(:user) { FactoryBot.create(:user, profile: Profile::ADMIN) }
-  let(:farmer) { FactoryBot.create(:farmer) }
+  let(:producer) { FactoryBot.create(:producer) }
 
   within_subdomain 'guillamap' do
-    describe 'GET /farmers' do
-      let(:action) { get '/farmers' }
+    describe 'GET /producers' do
+      let(:action) { get '/producers' }
 
       it_behaves_like 'a private action'
 
@@ -22,14 +22,14 @@ RSpec.describe 'Farmers', type: :request do
           expect(response).to have_http_status(:ok)
         end
 
-        it 'displays the farmers page' do
-          expect(response.body).to match('Paysan·ne·s')
+        it 'displays the producers page' do
+          expect(response.body).to match('Producteur·trice')
         end
       end
     end
 
-    describe 'GET /farmers/1' do
-      let(:action) { get "/farmers/#{farmer.id}" }
+    describe 'GET /producers/1' do
+      let(:action) { get "/producers/#{producer.id}" }
 
       it_behaves_like 'a private action'
 
@@ -43,14 +43,14 @@ RSpec.describe 'Farmers', type: :request do
           expect(response).to have_http_status(:ok)
         end
 
-        it 'displays the farmer page' do
-          expect(response.body).to match(farmer.name)
+        it 'displays the producer page' do
+          expect(response.body).to match(producer.name)
         end
       end
     end
 
-    describe 'GET /farmers/new' do
-      let(:action) { get '/farmers/new' }
+    describe 'GET /producers/new' do
+      let(:action) { get '/producers/new' }
 
       it_behaves_like 'a private action'
 
@@ -64,47 +64,47 @@ RSpec.describe 'Farmers', type: :request do
           expect(response).to have_http_status(:ok)
         end
 
-        it 'displays the farmer creation page' do
-          expect(response.body).to match('Nouveau·lle paysan·ne')
+        it 'displays the producer creation page' do
+          expect(response.body).to match('Nouveau·lle producteur·trice')
         end
       end
     end
 
-    describe 'POST /farmers' do
-      let(:params) { FactoryBot.attributes_for(:farmer) }
-      let(:action) { post '/farmers', params: { farmer: params } }
+    describe 'POST /producers' do
+      let(:params) { FactoryBot.attributes_for(:producer) }
+      let(:action) { post '/producers', params: { producer: params } }
 
       it_behaves_like 'a private action'
 
       context 'when the user is logged in as an admin' do
         before { sign_in(user) }
 
-        it 'creates a farmer' do
-          expect { action }.to change(Farmer, :count).by(+1)
+        it 'creates a producer' do
+          expect { action }.to change(Producer, :count).by(+1)
         end
 
-        it 'redirects to the farmer page' do
+        it 'redirects to the producer page' do
           action
-          expect(response).to redirect_to(Farmer.last)
+          expect(response).to redirect_to(Producer.last)
         end
 
         context 'with invalid params' do
           it 'displays an error' do
-            post '/farmers', params: { farmer: { name: '' } }
+            post '/producers', params: { producer: { name: '' } }
             expect(response.body).to match('Nom doit être rempli')
           end
         end
       end
     end
 
-    describe 'GET /farmers/1/edit' do
-      let(:action) { get "/farmers/#{farmer.id}/edit" }
+    describe 'GET /producers/1/edit' do
+      let(:action) { get "/producers/#{producer.id}/edit" }
 
       it_behaves_like 'a private action'
 
       context 'when the user is logged in as an admin' do
         before do
-          farmer
+          producer
           sign_in(user)
           action
         end
@@ -113,55 +113,57 @@ RSpec.describe 'Farmers', type: :request do
           expect(response).to have_http_status(:ok)
         end
 
-        it 'displays the farmer edition page' do
-          expect(response.body).to match(farmer.name)
+        it 'displays the producer edition page' do
+          expect(response.body).to match(producer.name)
           expect(response.body).to match('Enregistrer')
         end
       end
     end
 
-    describe 'PUT/PATCH /farmers/1' do
-      let(:params) { { id: farmer.id, name: 'John' } }
-      let(:action) { put "/farmers/#{farmer.id}", params: { farmer: params } }
+    describe 'PUT/PATCH /producers/1' do
+      let(:params) { { id: producer.id, name: 'John' } }
+      let(:action) do
+        put "/producers/#{producer.id}", params: { producer: params }
+      end
 
       it_behaves_like 'a private action'
 
       context 'when the user is logged in as an admin' do
         before do
-          farmer
+          producer
           sign_in(user)
         end
 
-        it 'updates to the farmer' do
+        it 'updates to the producer' do
           expect do
             action
-            farmer.reload
-          end.to change(farmer, :name).from(farmer.name).to('John')
+            producer.reload
+          end.to change(producer, :name).from(producer.name).to('John')
         end
 
-        it 'redirects to the farmer page' do
+        it 'redirects to the producer page' do
           action
-          expect(response).to redirect_to(farmer)
+          expect(response).to redirect_to(producer)
         end
       end
     end
 
-    describe 'DELETE /farmers/1' do
-      let(:action) { delete "/farmers/#{farmer.id}" }
+    describe 'DELETE /producers/1' do
+      let(:action) { delete "/producers/#{producer.id}" }
 
       it_behaves_like 'a private action'
 
       context 'when the user is logged in as an admin' do
         before do
-          farmer
+          producer
           sign_in(user)
         end
 
-        it 'deletes the farmer' do
+        it 'deletes the producer' do
           expect do
             action
-            farmer.reload
-          end.to change(farmer, :deleted?).from(false).to(true)
+            producer.reload
+          end.to change(producer, :deleted?).from(false).to(true)
         end
       end
     end

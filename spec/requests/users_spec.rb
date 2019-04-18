@@ -22,7 +22,7 @@ RSpec.describe 'Users', type: :request do
         end
 
         it 'displays the users page' do
-          expect(response.body).to match('Utilisateur·rice·s')
+          expect(response.body).to match('Utilisateur·trices')
         end
       end
     end
@@ -64,7 +64,7 @@ RSpec.describe 'Users', type: :request do
         end
 
         it 'displays the user creation page' do
-          expect(response.body).to match('Nouvel·le utilisateur·rice')
+          expect(response.body).to match('Nouvel·le utilisateur·trice')
         end
       end
     end

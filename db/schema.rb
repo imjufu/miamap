@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_124459) do
+ActiveRecord::Schema.define(version: 2019_04_17_123247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,20 @@ ActiveRecord::Schema.define(version: 2019_04_16_124459) do
     t.index ["subdomain"], name: "index_organizations_on_subdomain", unique: true
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "contract_id"
+    t.datetime "subscribed_at", null: false
+    t.datetime "member_accepted_at"
+    t.datetime "farmer_accepted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["contract_id"], name: "index_subscriptions_on_contract_id"
+    t.index ["deleted_at"], name: "index_subscriptions_on_deleted_at"
+    t.index ["member_id"], name: "index_subscriptions_on_member_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,4 +106,6 @@ ActiveRecord::Schema.define(version: 2019_04_16_124459) do
   end
 
   add_foreign_key "contracts", "farmers"
+  add_foreign_key "subscriptions", "contracts"
+  add_foreign_key "subscriptions", "members"
 end

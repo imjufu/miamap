@@ -5,7 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Farmers', type: :request do
   let(:user) { FactoryBot.create(:user, profile: Profile::ADMIN) }
   let(:farmer) { FactoryBot.create(:farmer) }
-  let(:params) { FactoryBot.attributes_for(:farmer) }
 
   within_subdomain 'guillamap' do
     describe 'GET /farmers' do

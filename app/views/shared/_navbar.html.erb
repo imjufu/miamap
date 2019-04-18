@@ -7,6 +7,9 @@
   <div class="navbar-collapse collapse" id="navbars">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        <%= link_to t('navbar.subscriptions'), subscriptions_path, class: 'nav-link' if can? :read, Subscription %>
+      </li>
+      <li class="nav-item">
         <%= link_to t('navbar.members'), members_path, class: 'nav-link' if can? :read, Member %>
       </li>
       <li class="nav-item">

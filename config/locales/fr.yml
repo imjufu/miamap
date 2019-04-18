@@ -17,6 +17,7 @@ fr:
     users: Utilisateur·trices
     members: Membres
     farmers: Paysan·nes
+    subscriptions: Souscriptions
   errors:
     messages:
       saving_failed:
@@ -38,3 +39,8 @@ fr:
     contracts: Contrats
   contracts:
     new: Nouveau contrat
+  subscriptions:
+    title: Souscription n°%{id}
+    member_placeholder: "Exemple : Pierre Rabhi"
+    list: Souscriptions
+    new: Nouvelle souscription

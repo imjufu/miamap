@@ -63,6 +63,8 @@ gem 'cancancan'
 # ActiveValidators is a collection of off-the-shelf and tested
 # ActiveModel/ActiveRecord validations.
 gem 'activevalidators'
+# Ransack enables the creation of both simple and advanced search forms
+gem 'ransack'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

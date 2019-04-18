@@ -5,7 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Members', type: :request do
   let(:user) { FactoryBot.create(:user, profile: Profile::ADMIN) }
   let(:member) { FactoryBot.create(:member) }
-  let(:params) { FactoryBot.attributes_for(:member) }
 
   within_subdomain 'guillamap' do
     describe 'GET /members' do

@@ -6,7 +6,6 @@ RSpec.describe 'Contracts', type: :request do
   let(:user) { FactoryBot.create(:user, profile: Profile::ADMIN) }
   let(:farmer) { FactoryBot.create(:farmer) }
   let(:contract) { FactoryBot.create(:contract, farmer: farmer) }
-  let(:params) { FactoryBot.attributes_for(:contract) }
 
   within_subdomain 'guillamap' do
     describe 'GET /farmers/1/contracts/1/contracts/1' do

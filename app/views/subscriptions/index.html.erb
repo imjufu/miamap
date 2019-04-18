@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('subscriptions.list') %></h1>
+  <%= link_to(t('subscriptions.new'), new_subscription_path, class: 'btn btn-primary') if can? :create, Subscription %>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t('activerecord.attributes.subscription.contract_id') %></th>
+      <th><%= t('activerecord.attributes.subscription.member_id') %></th>
+      <th><%= t('activerecord.attributes.subscription.subscribed_at') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= link_to t('subscriptions.title', id: subscription.id), subscription %></td>
+        <td><%= subscription.contract.title %></td>
+        <td><%= subscription.member.full_name %></td>
+        <td><%= humanize_dt subscription.subscribed_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @subscriptions %>

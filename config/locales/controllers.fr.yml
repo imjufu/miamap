@@ -27,3 +27,10 @@ fr:
       updated: "Contrat modifié."
     destroy:
       destroyed: "Contrat supprimé."
+  subscriptions:
+    create:
+      created: "Souscription créée."
+    update:
+      updated: "Souscription modifiée."
+    destroy:
+      destroyed: "Souscription supprimée."

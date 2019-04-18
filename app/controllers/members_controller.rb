@@ -6,7 +6,13 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.order(:first_name).page
+    query = params[:q]
+
+    @members = if query.present?
+                 Member.ransack(name_cont: query).result(distinct: true).page
+               else
+                 Member.order(:first_name).page
+               end
   end
 
   # GET /members/1

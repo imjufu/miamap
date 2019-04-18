@@ -26,3 +26,11 @@ fr:
       contract:
         title: Titre
         content: Contenu
+      subscription:
+        member_id: Membre
+        member: Membre
+        contract_id: Contrat
+        contract: Contrat
+        subscribed_at: Souscrit le
+        member_accepted_at: Acceptation du contrat par le·la membre le
+        farmer_accepted_at: Acceptation du contrat par le·la paysan·ne le

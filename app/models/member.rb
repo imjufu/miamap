@@ -12,6 +12,8 @@ class Member < ApplicationRecord
   }
   validates :postal_code, postal_code: { country: :fr }
 
+  ransack_alias :name, :first_name_or_last_name
+
   def full_name
     "#{first_name.capitalize} #{last_name.upcase}"
   end

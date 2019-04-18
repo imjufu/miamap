@@ -18,24 +18,12 @@ ActiveRecord::Schema.define(version: 2019_04_17_123247) do
   create_table "contracts", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
-    t.bigint "farmer_id", null: false
+    t.bigint "producer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_contracts_on_deleted_at"
-    t.index ["farmer_id"], name: "index_contracts_on_farmer_id"
-  end
-
-  create_table "farmers", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email_address", null: false
-    t.text "address", null: false
-    t.string "postal_code", null: false
-    t.string "city", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_farmers_on_deleted_at"
+    t.index ["producer_id"], name: "index_contracts_on_producer_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -60,12 +48,24 @@ ActiveRecord::Schema.define(version: 2019_04_17_123247) do
     t.index ["subdomain"], name: "index_organizations_on_subdomain", unique: true
   end
 
+  create_table "producers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email_address", null: false
+    t.text "address", null: false
+    t.string "postal_code", null: false
+    t.string "city", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_producers_on_deleted_at"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "member_id"
     t.bigint "contract_id"
     t.datetime "subscribed_at", null: false
     t.datetime "member_accepted_at"
-    t.datetime "farmer_accepted_at"
+    t.datetime "producer_accepted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_123247) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "contracts", "farmers"
+  add_foreign_key "contracts", "producers"
   add_foreign_key "subscriptions", "contracts"
   add_foreign_key "subscriptions", "members"
 end

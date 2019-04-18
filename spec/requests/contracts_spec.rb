@@ -4,12 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'Contracts', type: :request do
   let(:user) { FactoryBot.create(:user, profile: Profile::ADMIN) }
-  let(:farmer) { FactoryBot.create(:farmer) }
-  let(:contract) { FactoryBot.create(:contract, farmer: farmer) }
+  let(:producer) { FactoryBot.create(:producer) }
+  let(:contract) { FactoryBot.create(:contract, producer: producer) }
 
   within_subdomain 'guillamap' do
-    describe 'GET /farmers/1/contracts/1/contracts/1' do
-      let(:action) { get "/farmers/#{farmer.id}/contracts/#{contract.id}" }
+    describe 'GET /producers/1/contracts/1/contracts/1' do
+      let(:action) { get "/producers/#{producer.id}/contracts/#{contract.id}" }
 
       it_behaves_like 'a private action'
 
@@ -29,8 +29,8 @@ RSpec.describe 'Contracts', type: :request do
       end
     end
 
-    describe 'GET /farmers/1/contracts/new' do
-      let(:action) { get "/farmers/#{farmer.id}/contracts/new" }
+    describe 'GET /producers/1/contracts/new' do
+      let(:action) { get "/producers/#{producer.id}/contracts/new" }
 
       it_behaves_like 'a private action'
 
@@ -50,10 +50,10 @@ RSpec.describe 'Contracts', type: :request do
       end
     end
 
-    describe 'POST /farmers/1/contracts' do
+    describe 'POST /producers/1/contracts' do
       let(:params) { FactoryBot.attributes_for(:contract) }
       let(:action) do
-        post "/farmers/#{farmer.id}/contracts", params: { contract: params }
+        post "/producers/#{producer.id}/contracts", params: { contract: params }
       end
 
       it_behaves_like 'a private action'
@@ -69,13 +69,15 @@ RSpec.describe 'Contracts', type: :request do
           action
           contract = Contract.last
           expect(response).to redirect_to(
-            farmer_contract_path(id: contract.id, farmer_id: contract.farmer_id)
+            producer_contract_path(
+              id: contract.id, producer_id: contract.producer_id
+            )
           )
         end
 
         context 'with invalid params' do
           it 'displays an error' do
-            post "/farmers/#{farmer.id}/contracts", params: {
+            post "/producers/#{producer.id}/contracts", params: {
               contract: { title: '' }
             }
             expect(response.body).to match('Titre doit être rempli')
@@ -84,8 +86,10 @@ RSpec.describe 'Contracts', type: :request do
       end
     end
 
-    describe 'GET /farmers/1/contracts/1/edit' do
-      let(:action) { get "/farmers/#{farmer.id}/contracts/#{contract.id}/edit" }
+    describe 'GET /producers/1/contracts/1/edit' do
+      let(:action) do
+        get "/producers/#{producer.id}/contracts/#{contract.id}/edit"
+      end
 
       it_behaves_like 'a private action'
 
@@ -100,17 +104,17 @@ RSpec.describe 'Contracts', type: :request do
           expect(response).to have_http_status(:ok)
         end
 
-        it 'displays the farmer edition page' do
+        it 'displays the producer edition page' do
           expect(response.body).to match(contract.title)
           expect(response.body).to match('Enregistrer')
         end
       end
     end
 
-    describe 'PUT/PATCH /farmers/1/contracts/1' do
+    describe 'PUT/PATCH /producers/1/contracts/1' do
       let(:params) { { id: contract.id, title: 'Été 2019' } }
       let(:action) do
-        put "/farmers/#{farmer.id}/contracts/#{contract.id}", params: {
+        put "/producers/#{producer.id}/contracts/#{contract.id}", params: {
           contract: params
         }
       end
@@ -133,14 +137,18 @@ RSpec.describe 'Contracts', type: :request do
         it 'redirects to the contract page' do
           action
           expect(response).to redirect_to(
-            farmer_contract_path(id: contract.id, farmer_id: contract.farmer_id)
+            producer_contract_path(
+              id: contract.id, producer_id: contract.producer_id
+            )
           )
         end
       end
     end
 
-    describe 'DELETE /farmers/1/contracts/1' do
-      let(:action) { delete "/farmers/#{farmer.id}/contracts/#{contract.id}" }
+    describe 'DELETE /producers/1/contracts/1' do
+      let(:action) do
+        delete "/producers/#{producer.id}/contracts/#{contract.id}"
+      end
 
       it_behaves_like 'a private action'
 

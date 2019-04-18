@@ -1,31 +1,31 @@
 # frozen_string_literal: true
 
 class ContractsController < ApplicationController
-  load_and_authorize_resource :farmer
-  load_and_authorize_resource :contract, through: :farmer
+  load_and_authorize_resource :producer
+  load_and_authorize_resource :contract, through: :producer
 
-  # GET /farmers/1/contracts/1
-  # GET /farmers/1/contracts/1.json
+  # GET /producers/1/contracts/1
+  # GET /producers/1/contracts/1.json
   def show
   end
 
-  # GET /farmers/1/contracts/new
+  # GET /producers/1/contracts/new
   def new
     @contract = Contract.new
   end
 
-  # GET /farmers/1/contracts/1/edit
+  # GET /producers/1/contracts/1/edit
   def edit
   end
 
-  # POST /farmers/1/contracts
-  # POST /farmers/1/contracts.json
+  # POST /producers/1/contracts
+  # POST /producers/1/contracts.json
   def create
-    @contract = Contract.new(contract_params.merge(farmer: @farmer))
+    @contract = Contract.new(contract_params.merge(producer: @producer))
 
     respond_to do |format|
       if @contract.save
-        format.html { redirect_to farmer_contract_path(id: @contract.id, farmer_id: @farmer.id), notice: t('.created') } # rubocop:disable Metrics/LineLength
+        format.html { redirect_to producer_contract_path(id: @contract.id, producer_id: @producer.id), notice: t('.created') } # rubocop:disable Metrics/LineLength
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
@@ -34,12 +34,12 @@ class ContractsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /farmers/1/contracts/1
-  # PATCH/PUT /farmers/1/contracts/1.json
+  # PATCH/PUT /producers/1/contracts/1
+  # PATCH/PUT /producers/1/contracts/1.json
   def update
     respond_to do |format|
       if @contract.update(contract_params)
-        format.html { redirect_to farmer_contract_path(id: @contract.id, farmer_id: @farmer.id), notice: t('.updated') } # rubocop:disable Metrics/LineLength
+        format.html { redirect_to producer_contract_path(id: @contract.id, producer_id: @producer.id), notice: t('.updated') } # rubocop:disable Metrics/LineLength
         format.json { render :show, status: :ok, location: @contract }
       else
         format.html { render :edit }
@@ -48,12 +48,12 @@ class ContractsController < ApplicationController
     end
   end
 
-  # DELETE /farmers/1/contracts/1
-  # DELETE /farmers/1/contracts/1.json
+  # DELETE /producers/1/contracts/1
+  # DELETE /producers/1/contracts/1.json
   def destroy
     @contract.destroy
     respond_to do |format|
-      format.html { redirect_to @farmer, notice: t('.destroyed') }
+      format.html { redirect_to @producer, notice: t('.destroyed') }
       format.json { head :no_content }
     end
   end

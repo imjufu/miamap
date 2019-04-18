@@ -17,7 +17,7 @@ fr:
         address: Adresse
         postal_code: Code postal
         city: Ville
-      farmer:
+      producer:
         email_address: Courriel
         name: Nom
         address: Adresse
@@ -33,4 +33,4 @@ fr:
         contract: Contrat
         subscribed_at: Souscrit le
         member_accepted_at: Acceptation du contrat par le·la membre le
-        farmer_accepted_at: Acceptation du contrat par le·la paysan·ne le
+        producer_accepted_at: Acceptation du contrat par le·la producteur·trice le

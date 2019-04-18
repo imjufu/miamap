@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Farmer < ApplicationRecord
+class Producer < ApplicationRecord
   acts_as_paranoid
 
   has_many :contracts, dependent: :destroy

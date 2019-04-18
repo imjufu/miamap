@@ -16,7 +16,7 @@ fr:
     administration: Administration
     users: Utilisateur·trices
     members: Membres
-    farmers: Paysan·nes
+    producers: Producteur·trices
     subscriptions: Souscriptions
   errors:
     messages:
@@ -32,10 +32,10 @@ fr:
     profile: Profil
     list: Membres
     new: Nouveau·velle membre
-  farmers:
+  producers:
     profile: Profil
-    list: Paysan·nes
-    new: Nouveau·lle paysan·ne
+    list: Producteur·trices
+    new: Nouveau·lle producteur·trice
     contracts: Contrats
   contracts:
     new: Nouveau contrat

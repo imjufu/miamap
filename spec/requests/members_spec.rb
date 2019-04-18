@@ -65,7 +65,7 @@ RSpec.describe 'Members', type: :request do
         end
 
         it 'displays the member creation page' do
-          expect(response.body).to match('Nouveau·lle membre')
+          expect(response.body).to match('Nouveau·velle membre')
         end
       end
     end

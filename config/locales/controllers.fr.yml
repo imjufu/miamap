@@ -13,13 +13,13 @@ fr:
       updated: "Membre modifié·e."
     destroy:
       destroyed: "Membre supprimé·e."
-  farmers:
+  producers:
     create:
-      created: "Paysan·ne créé·e."
+      created: "Producteur·trice créé·e."
     update:
-      updated: "Paysan·ne modifié·e."
+      updated: "Producteur·trice modifié·e."
     destroy:
-      destroyed: "Paysan·ne supprimé·e."
+      destroyed: "Producteur·trice supprimé·e."
   contracts:
     create:
       created: "Contrat créé."

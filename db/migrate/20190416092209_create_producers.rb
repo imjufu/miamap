@@ -1,6 +1,6 @@
-class CreateFarmers < ActiveRecord::Migration[5.2]
+class CreateProducers < ActiveRecord::Migration[5.2]
   def change
-    create_table :farmers do |t|
+    create_table :producers do |t|
       t.string :name, null: false
       t.string :email_address, null: false
       t.text :address, null: false
@@ -10,7 +10,7 @@ class CreateFarmers < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_column :farmers, :deleted_at, :datetime
-    add_index :farmers, :deleted_at
+    add_column :producers, :deleted_at, :datetime
+    add_index :producers, :deleted_at
   end
 end

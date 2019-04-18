@@ -13,7 +13,7 @@
         <%= link_to t('navbar.members'), members_path, class: 'nav-link' if can? :read, Member %>
       </li>
       <li class="nav-item">
-        <%= link_to t('navbar.farmers'), farmers_path, class: 'nav-link' if can? :read, Farmer %>
+        <%= link_to t('navbar.producers'), producers_path, class: 'nav-link' if can? :read, Producer %>
       </li>
       <% links = [] %>
       <% links << link_to(t('navbar.users'), users_path, class: 'dropdown-item') if can? :read, User %>

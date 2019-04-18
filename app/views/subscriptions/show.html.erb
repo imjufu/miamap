@@ -1,3 +1,15 @@
+<% unless @subscription.signed_by_the_member? %>
+<div class="alert alert-warning" role="alert">
+  <%=  t('subscriptions.member_signature_missing') %>
+</div>
+<% end %>
+
+<% unless @subscription.signed_by_the_producer? %>
+<div class="alert alert-warning" role="alert">
+  <%=  t('subscriptions.producer_signature_missing') %>
+</div>
+<% end %>
+
 <div class="d-flex align-items-center mb-3">
   <h1 class="h1 mr-2"><%= t('subscriptions.title', id: @subscription.id) %></h1>
   <%= link_to(t('actions.delete'), @subscription, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @subscription %>

@@ -1,0 +1,17 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+html {
+  height: 100%;
+}
+
+body {
+  border: 25px solid black;
+  min-height: 100%;
+  padding: 15px;
+  margin-bottom: 50px;
+}
+
+header {
+  text-align: center;
+}

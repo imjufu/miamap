@@ -59,6 +59,11 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  # GET /subscriptions/1/preview
+  def preview
+    render layout: false
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow

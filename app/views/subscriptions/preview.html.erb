@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="turbolinks-visit-control" content="reload">
+    <title><%= (content_for?(:title) ? content_for(:title) + ' / ' : '') + t('project.name') %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'preview_before_signing', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <h1><%= @subscription.contract.title %></h1>
+      <nav class="navbar navbar-expand-md fixed-bottom navbar-light bg-light">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="<%= t('actions.toggle_menu') %>">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbars">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to t('actions.back'), @subscription, class: 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="flex-shrink-0">
+      <div class="container">
+        <%= @subscription.contract.real_content(@subscription.member) %>
+      </div>
+    </main>
+  </body>
+</html>

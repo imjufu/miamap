@@ -17,4 +17,16 @@ class Member < ApplicationRecord
   def full_name
     "#{first_name.capitalize} #{last_name.upcase}"
   end
+
+  def to_s_for_contract
+    "<strong>#{full_name}</strong><address>#{address}"\
+    "<br>#{postal_code} #{city}</address>"
+  end
+
+  def self.john_doe
+    new(
+      first_name: 'John', last_name: 'Doe',
+      address: '42 Route de Tatooine', postal_code: '69007', city: 'Lyon'
+    )
+  end
 end

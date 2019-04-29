@@ -19,16 +19,16 @@ else
     puts "   -> password: #{password}"
   end
 
-  member = Member.find_by(email_address: 'luc@guillamap.local')
+  member = Member.find_by(email_address: 'luke@guillamap.local')
   unless member
-    member = FactoryBot.create(:member, email_address: 'luc@guillamap.local')
+    member = FactoryBot.create(:member, email_address: 'luke@guillamap.local')
     puts "-- create a member"
     puts "   -> email address: #{member.email_address}"
   end
 
-  producer = Producer.find_by(email_address: 'obi@guillamap.local')
+  producer = Producer.find_by(email_address: 'obi-wan@guillamap.local')
   unless producer
-    producer = FactoryBot.create(:producer, email_address: 'obi@guillamap.local')
+    producer = FactoryBot.create(:producer, email_address: 'obi-wan@guillamap.local')
     puts "-- create a producer"
     puts "   -> email address: #{producer.email_address}"
   end

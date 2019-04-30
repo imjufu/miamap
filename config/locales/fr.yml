@@ -1,7 +1,8 @@
 fr:
   project:
     name: miamap
-    welcome: Bienvenue, %{user}
+    name_html: <i class="fas fa-carrot"></i> miamap
+    welcome_html: <i class="far fa-hand-peace"></i> Bienvenue, %{user}
   actions:
     save: Enregistrer
     sign: Signer
@@ -15,11 +16,11 @@ fr:
     sure?: Êtes-vous sûr·e ?
     print: Imprimer
   navbar:
-    administration: Administration
+    administration_html: <i class="fas fa-cogs"></i> Administration
     users: Utilisateur·trices
-    members: Membres
-    producers: Producteur·trices
-    subscriptions: Souscriptions
+    members_html: <i class="fas fa-child"></i> Membres
+    producers_html: <i class="fas fa-tractor"></i> Producteur·trices
+    subscriptions_html: <i class="fas fa-file-signature"></i> Souscriptions
   errors:
     messages:
       saving_failed:

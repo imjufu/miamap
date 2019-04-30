@@ -14,7 +14,7 @@
   <h1 class="h1 mr-2"><%= t('subscriptions.title', id: @subscription.id) %></h1>
   <%= link_to t('subscriptions.preview'), preview_subscription_path(@subscription), class: 'btn btn-primary' %>
   <%= link_to(t('actions.delete'), @subscription, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @subscription %>
-  <%= link_to t('actions.back_to_the_list'), subscriptions_path, class: 'ml-1 btn btn-light' %>
+  <%= link_to t('actions.back_to_the_list_html'), subscriptions_path, class: 'ml-1 btn btn-light' %>
 </div>
 
 <dl class="row">

@@ -2,7 +2,7 @@
   <h1 class="h1 mr-2"><%= @producer.name %></h1>
   <%= link_to(t('actions.edit'), edit_producer_path(@producer), class: 'btn btn-primary') if can? :update, @producer %>
   <%= link_to(t('actions.delete'), @producer, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @producer %>
-  <%= link_to t('actions.back_to_the_list'), producers_path, class: 'ml-1 btn btn-light' %>
+  <%= link_to t('actions.back_to_the_list_html'), producers_path, class: 'ml-1 btn btn-light' %>
 </div>
 
 <nav>

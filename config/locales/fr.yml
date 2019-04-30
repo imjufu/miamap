@@ -1,7 +1,8 @@
 fr:
   project:
     name: miamap
-    welcome: Bienvenue, %{user}
+    name_html: <i class="fas fa-carrot"></i> miamap
+    welcome_html: <i class="far fa-hand-peace"></i> Bienvenue, %{user}
   actions:
     save: Enregistrer
     sign: Signer
@@ -9,22 +10,22 @@ fr:
     close: Fermer
     delete: Supprimer
     toggle_menu: Voir le menu
-    back_to_the_list: Retour à la liste
-    back: Retour
+    back_to_the_list_html: <i class="fas fa-long-arrow-alt-left"></i> Retour à la liste
+    back_html: <i class="fas fa-long-arrow-alt-left"></i> Retour
     cancel: Annuler
     sure?: Êtes-vous sûr·e ?
     print: Imprimer
   navbar:
-    administration: Administration
+    administration_html: <i class="fas fa-cogs"></i> Administration
     users: Utilisateur·trices
-    members: Membres
-    producers: Producteur·trices
-    subscriptions: Souscriptions
+    members_html: <i class="fas fa-child"></i> Membres
+    producers_html: <i class="fas fa-tractor"></i> Producteur·trices
+    subscriptions_html: <i class="fas fa-file-signature"></i> Souscriptions
   errors:
     messages:
       saving_failed:
-        one: Une erreur empêche l'enregistrement
-        other: "%{count} erreurs empêchent l'enregistrement"
+        one: Oops… Une erreur empêche l'enregistrement
+        other: " Oops… %{count} erreurs empêchent l'enregistrement"
   users:
     list: Utilisateur·trices
     new: Nouvel·le utilisateur·trice

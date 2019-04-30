@@ -10,8 +10,8 @@ fr:
     close: Fermer
     delete: Supprimer
     toggle_menu: Voir le menu
-    back_to_the_list: Retour à la liste
-    back: Retour
+    back_to_the_list_html: <i class="fas fa-long-arrow-alt-left"></i> Retour à la liste
+    back_html: <i class="fas fa-long-arrow-alt-left"></i> Retour
     cancel: Annuler
     sure?: Êtes-vous sûr·e ?
     print: Imprimer
@@ -24,8 +24,8 @@ fr:
   errors:
     messages:
       saving_failed:
-        one: Une erreur empêche l'enregistrement
-        other: "%{count} erreurs empêchent l'enregistrement"
+        one: Oops… Une erreur empêche l'enregistrement
+        other: " Oops… %{count} erreurs empêchent l'enregistrement"
   users:
     list: Utilisateur·trices
     new: Nouvel·le utilisateur·trice

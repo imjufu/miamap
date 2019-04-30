@@ -1,6 +1,6 @@
 <% if errors.any? %>
   <div class="alert alert-warning" role="alert">
-    <p class="alert-heading"><strong><%= t('errors.messages.saving_failed', count: errors.count) %></strong></p>
+    <p class="alert-heading"><i class='far fa-lg fa-grimace'></i><%= t('errors.messages.saving_failed', count: errors.count) %></p>
     <hr />
     <ul>
     <% errors.full_messages.each do |message| %>

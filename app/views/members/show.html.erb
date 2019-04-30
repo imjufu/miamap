@@ -2,7 +2,7 @@
   <h1 class="h1 mr-2"><%= @member.full_name %></h1>
   <%= link_to(t('actions.edit'), edit_member_path(@member), class: 'btn btn-primary') if can? :update, @member %>
   <%= link_to(t('actions.delete'), @member, method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @member %>
-  <%= link_to t('actions.back_to_the_list'), members_path, class: 'ml-1 btn btn-light' %>
+  <%= link_to t('actions.back_to_the_list_html'), members_path, class: 'ml-1 btn btn-light' %>
 </div>
 
 <nav>

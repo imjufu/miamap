@@ -38,6 +38,8 @@ class Subscription < ApplicationRecord
 
   def decode_data_uri(data_uri)
     encoded_image = data_uri.split(',')[1]
+    return nil if encoded_image.blank?
+
     Base64.decode64(encoded_image)
   end
 

@@ -22,6 +22,12 @@ RSpec.describe SubscriptionsController, type: :routing do
       )
     end
 
+    it 'routes to #preview' do
+      expect(get: '/subscriptions/1/preview').to route_to(
+        'subscriptions#preview', id: '1'
+      )
+    end
+
     it 'does not route to #edit' do
       expect(get: '/subscriptions/1/edit').not_to route_to(
         'subscriptions#edit', id: '1'

@@ -51,6 +51,27 @@ RSpec.describe 'Subscriptions', type: :request do
       end
     end
 
+    describe 'GET /subscriptions/1/preview' do
+      let(:action) { get "/subscriptions/#{subscription.id}/preview" }
+
+      it_behaves_like 'a private action'
+
+      context 'when the user is logged in as an admin' do
+        before do
+          sign_in(user)
+          action
+        end
+
+        it 'responds with status code 200' do
+          expect(response).to have_http_status(:ok)
+        end
+
+        it 'displays the subscription preview before signing page' do
+          expect(response.body).to match(subscription.contract.title)
+        end
+      end
+    end
+
     describe 'GET /subscriptions/new' do
       let(:action) { get '/subscriptions/new' }
 

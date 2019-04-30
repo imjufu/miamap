@@ -3,7 +3,7 @@
 class ContractScrubber < Rails::Html::PermitScrubber
   def initialize
     super
-    self.tags = %w[p br strong a u em ol ul li h1 h2 h3]
+    self.tags = %w[p br strong a u em ol ul li h1 h2 h3 address]
     self.attributes = %w[href]
   end
 

@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
+//= require @fortawesome/fontawesome-free/js/all
 //= require bootstrap-sprockets
 //= require_tree .
+
+FontAwesome.config.mutateApproach = 'sync'

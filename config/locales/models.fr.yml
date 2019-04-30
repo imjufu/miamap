@@ -26,6 +26,7 @@ fr:
       contract:
         title: Titre
         content: Contenu
+        producer_id: Producteur·trice
       subscription:
         member_id: Membre
         member: Membre

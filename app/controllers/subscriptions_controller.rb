@@ -70,7 +70,9 @@ class SubscriptionsController < ApplicationController
   # the white list through.
   def subscription_params
     params.require(:subscription).permit(
-      :member_id, :contract_id, :subscribed_at
+      :member_id, :contract_id, :subscribed_at, :producer_accepted_at,
+      :member_accepted_at, :producer_signature_data_uri,
+      :member_signature_data_uri
     )
   end
 end

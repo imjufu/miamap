@@ -24,4 +24,10 @@
   <dd class="col-sm-9"><%= @subscription.member.full_name %></dd>
   <dt class="col-sm-3"><%= t('activerecord.attributes.subscription.contract_id') %></dt>
   <dd class="col-sm-9"><%= @subscription.contract.title %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.contract.producer_id') %></dt>
+  <dd class="col-sm-9"><%= @subscription.contract.producer.name %></dd>
+  <dt class="col-sm-3"><%= t('subscriptions.member_signature') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @subscription.member_accepted_at %></dd>
+  <dt class="col-sm-3"><%= t('subscriptions.producer_signature') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @subscription.producer_accepted_at %></dd>
 </dl>

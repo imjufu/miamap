@@ -4,6 +4,7 @@ fr:
     welcome: Bienvenue, %{user}
   actions:
     save: Enregistrer
+    sign: Signer
     edit: Modifier
     close: Fermer
     delete: Supprimer
@@ -12,6 +13,7 @@ fr:
     back: Retour
     cancel: Annuler
     sure?: Êtes-vous sûr·e ?
+    print: Imprimer
   navbar:
     administration: Administration
     users: Utilisateur·trices
@@ -47,3 +49,5 @@ fr:
     member_signature_missing: Le·la membre n'a pas signé·e le contract
     producer_signature_missing: Le·la producteur·trice n'a pas signé·e le contract
     preview: Voir le contrat
+    member_signature: Signature du membre
+    producer_signature: Signature du·de la producteur·trice

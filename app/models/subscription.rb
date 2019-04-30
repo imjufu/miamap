@@ -17,4 +17,31 @@ class Subscription < ApplicationRecord
   def signed_by_the_producer?
     producer_accepted_at.present?
   end
+
+  def producer_signature_data_uri=(data_uri)
+    self.producer_signature = decode_data_uri(data_uri)
+  end
+
+  def producer_signature_data_uri
+    encode_data(producer_signature)
+  end
+
+  def member_signature_data_uri=(data_uri)
+    self.member_signature = decode_data_uri(data_uri)
+  end
+
+  def member_signature_data_uri
+    encode_data(member_signature)
+  end
+
+  private
+
+  def decode_data_uri(data_uri)
+    encoded_image = data_uri.split(',')[1]
+    Base64.decode64(encoded_image)
+  end
+
+  def encode_data(data)
+    "data:image/png;base64,#{Base64.encode64(data)}" if data.present?
+  end
 end

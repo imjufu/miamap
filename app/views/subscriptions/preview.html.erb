@@ -20,7 +20,8 @@
         <div class="navbar-collapse collapse" id="navbars">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <%= link_to t('actions.back'), @subscription, class: 'nav-link' %>
+              <%= link_to t('actions.back'), @subscription, class: 'btn btn-secondary' %>
+              <a href="javascript:window.print()" class="btn btn-info"><%= t('actions.print') %></a>
             </li>
           </ul>
         </div>
@@ -29,6 +30,34 @@
     <main role="main" class="flex-shrink-0">
       <div class="container">
         <%= @subscription.contract.real_content(@subscription.member) %>
+        <div class="row" data-controller="signature" data-update-url="<%= subscription_path(@subscription, format: :json) %>">
+          <div class="col-sm">
+            <div id="producer" class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title"><%= t('subscriptions.producer_signature') %></h5>
+                <canvas class="border border-dark" data-signature="<%= @subscription.producer_signature_data_uri %>"></canvas>
+              </div>
+              <div class="card-footer">
+                <button data-action="signature#editProducerSignature" class="btn btn-primary sign"><%= t('actions.sign') %></button>
+                <button data-action="signature#saveProducerSignature" class="btn btn-primary save"><%= t('actions.save') %></button>
+                <button data-action="signature#cancelProducerSignature" class="btn btn-secondary cancel"><%= t('actions.cancel') %></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div id="member" class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title"><%= t('subscriptions.member_signature') %></h5>
+                <canvas class="border border-dark" data-signature="<%= @subscription.member_signature_data_uri %>"></canvas>
+              </div>
+              <div class="card-footer">
+                <button data-action="signature#editMemberSignature" class="btn btn-primary sign"><%= t('actions.sign') %></button>
+                <button data-action="signature#saveMemberSignature" class="btn btn-primary save"><%= t('actions.save') %></button>
+                <button data-action="signature#cancelMemberSignature" class="btn btn-secondary cancel"><%= t('actions.cancel') %></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>

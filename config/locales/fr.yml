@@ -47,8 +47,8 @@ fr:
     member_placeholder: "Exemple : Pierre Rabhi"
     list: Souscriptions
     new: Nouvelle souscription
-    member_signature_missing: Le·la membre n'a pas signé·e le contract
-    producer_signature_missing: Le·la producteur·trice n'a pas signé·e le contract
+    member_signature_missing: Le·la membre n'a pas signé·e le contrat
+    producer_signature_missing: Le·la producteur·trice n'a pas signé·e le contrat
     preview: Voir le contrat
     member_signature: Signature du membre
     producer_signature: Signature du·de la producteur·trice

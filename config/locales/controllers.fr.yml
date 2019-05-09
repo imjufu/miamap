@@ -34,3 +34,10 @@ fr:
       updated: "Souscription modifiée."
     destroy:
       destroyed: "Souscription supprimée."
+  payments:
+    create:
+      created: "Paiement créé."
+    update:
+      updated: "Paiement modifié."
+    destroy:
+      destroyed: "Paiement supprimé."

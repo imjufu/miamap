@@ -52,3 +52,10 @@ fr:
     preview: Voir le contrat
     member_signature: Signature du membre
     producer_signature: Signature du·de la producteur·trice
+    info: Informations
+    payments: Paiements
+  payments:
+    title: Paiement n°%{id}
+    new: Nouveau paiement
+    means:
+      check: Chèque

@@ -65,6 +65,8 @@ gem 'cancancan'
 gem 'activevalidators'
 # Ransack enables the creation of both simple and advanced search forms
 gem 'ransack'
+# A Ruby Library for dealing with money and currency conversion
+gem 'money-rails'
 
 group :development, :test do
   # Pry is a powerful alternative to the standard IRB shell

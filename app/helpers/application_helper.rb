@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def humanize_dt(datetime, format: nil)
+  def humanize_dt(datetime, format: :short)
     l(datetime, format: format) if datetime.present?
   end
 

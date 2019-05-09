@@ -8,6 +8,7 @@
     <tr>
       <th></th>
       <th><%= t('activerecord.attributes.subscription.contract_id') %></th>
+      <th><%= t('activerecord.attributes.contract.producer_id') %></th>
       <th><%= t('activerecord.attributes.subscription.member_id') %></th>
       <th><%= t('activerecord.attributes.subscription.subscribed_at') %></th>
       <th><%= t('subscriptions.member_signature') %></th>
@@ -19,8 +20,9 @@
       <tr>
         <td><%= link_to t('subscriptions.title', id: subscription.id), subscription %></td>
         <td><%= subscription.contract.title %></td>
+        <td><%= subscription.contract.producer.name %></td>
         <td><%= subscription.member.full_name %></td>
-        <td><%= humanize_dt subscription.subscribed_at, format: :short %></td>
+        <td><%= humanize_dt subscription.subscribed_at %></td>
         <td class="text-center"><%= humanize_bool subscription.signed_by_the_member? %></td>
         <td class="text-center"><%= humanize_bool subscription.signed_by_the_producer? %></td>
       </tr>

@@ -21,6 +21,7 @@ fr:
     members_html: <i class="fas fa-child"></i> Membres
     producers_html: <i class="fas fa-tractor"></i> Producteur·trices
     subscriptions_html: <i class="fas fa-file-signature"></i> Souscriptions
+    membership_forms: Fiches d'adhésion
   errors:
     messages:
       saving_failed:
@@ -35,6 +36,9 @@ fr:
     profile: Profil
     list: Membres
     new: Nouveau·velle membre
+  membership_forms:
+    list: Fiches d'adhésion
+    new: Nouvelle fiche d'adhésion
   producers:
     profile: Profil
     list: Producteur·trices

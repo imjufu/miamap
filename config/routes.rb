@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :members
   resources :subscriptions, except: %i[edit] do
     get :preview, on: :member
+    resources :payments, except: %i[index]
   end
   resources :producers do
     resources :contracts, except: %i[index]

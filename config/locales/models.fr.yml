@@ -35,3 +35,7 @@ fr:
         subscribed_at: Souscrit le
         member_accepted_at: Acceptation du contrat par le·la membre le
         producer_accepted_at: Acceptation du contrat par le·la producteur·trice le
+      payment:
+        amount: Montant
+        payed_at: Payé le
+        means: Moyen de paiement

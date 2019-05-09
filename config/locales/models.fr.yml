@@ -39,3 +39,6 @@ fr:
         amount: Montant
         payed_at: Payé le
         means: Moyen de paiement
+      membership_form:
+        title: Titre
+        content: Contenu

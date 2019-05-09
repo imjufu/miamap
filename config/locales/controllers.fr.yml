@@ -41,3 +41,10 @@ fr:
       updated: "Paiement modifié."
     destroy:
       destroyed: "Paiement supprimé."
+  membership_forms:
+    create:
+      created: "Fiche d'adhésion créée."
+    update:
+      updated: "Fiche d'adhésion modifiée."
+    destroy:
+      destroyed: "Fiche d'adhésion supprimée."

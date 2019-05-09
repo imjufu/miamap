@@ -3,6 +3,7 @@
 class Subscription < ApplicationRecord
   acts_as_paranoid
 
+  has_many :payments, dependent: :destroy
   belongs_to :member
   belongs_to :contract
 

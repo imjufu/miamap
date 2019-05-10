@@ -48,3 +48,10 @@ fr:
       updated: "Fiche d'adhésion modifiée."
     destroy:
       destroyed: "Fiche d'adhésion supprimée."
+  memberships:
+    create:
+      created: "Adhésion créée."
+    update:
+      updated: "Adhésion modifiée."
+    destroy:
+      destroyed: "Adhésion supprimée."

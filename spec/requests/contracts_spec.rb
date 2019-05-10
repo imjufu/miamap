@@ -8,7 +8,7 @@ RSpec.describe 'Contracts', type: :request do
   let(:contract) { FactoryBot.create(:contract, producer: producer) }
 
   within_subdomain 'guillamap' do
-    describe 'GET /producers/1/contracts/1/contracts/1' do
+    describe 'GET /producers/1/contracts/1' do
       let(:action) { get "/producers/#{producer.id}/contracts/#{contract.id}" }
 
       it_behaves_like 'a private action'

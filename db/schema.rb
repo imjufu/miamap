@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_095452) do
+ActiveRecord::Schema.define(version: 2019_05_09_150806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 2019_05_09_095452) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "membership_form_id", null: false
+    t.bigint "member_id", null: false
+    t.datetime "membershiped_at", null: false
+    t.datetime "member_accepted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_memberships_on_deleted_at"
+    t.index ["member_id"], name: "index_memberships_on_member_id"
+    t.index ["membership_form_id"], name: "index_memberships_on_membership_form_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -127,6 +140,8 @@ ActiveRecord::Schema.define(version: 2019_05_09_095452) do
   end
 
   add_foreign_key "contracts", "producers"
+  add_foreign_key "memberships", "members"
+  add_foreign_key "memberships", "membership_forms"
   add_foreign_key "payments", "subscriptions"
   add_foreign_key "subscriptions", "contracts"
   add_foreign_key "subscriptions", "members"

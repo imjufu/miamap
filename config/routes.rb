@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  resources :members
+  resources :members do
+    resources :memberships, except: %i[index]
+  end
   resources :membership_forms
   resources :subscriptions, except: %i[edit] do
     get :preview, on: :member

@@ -8,4 +8,8 @@ class Membership < ApplicationRecord
 
   validates :member_accepted_at, date: true, allow_nil: true
   validates :membershiped_at, date: true
+
+  def signed_by_the_member?
+    member_accepted_at.present?
+  end
 end

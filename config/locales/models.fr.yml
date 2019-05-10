@@ -42,3 +42,8 @@ fr:
       membership_form:
         title: Titre
         content: Contenu
+      membership:
+        membershiped_at: Adhère le
+        membership_form: Fiche d'adhésion
+        membership_form_id: Fiche d'adhésion
+        member_id: Membre

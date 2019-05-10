@@ -36,9 +36,15 @@ fr:
     profile: Profil
     list: Membres
     new: Nouveau·velle membre
+    memberships: Adhésions
   membership_forms:
     list: Fiches d'adhésion
     new: Nouvelle fiche d'adhésion
+  memberships:
+    new: Nouvelle adhésion
+    member_signature_missing: Le·la membre n'a pas signé·e l'adhésion
+    title: Adhésion n°%{id}
+    member_signature: Signature du membre
   producers:
     profile: Profil
     list: Producteur·trices

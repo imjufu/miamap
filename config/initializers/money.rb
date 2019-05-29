@@ -7,3 +7,5 @@ MoneyRails.configure do |config|
     format: '%n %u'
   }
 end
+
+Money.locale_backend = :i18n

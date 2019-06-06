@@ -26,11 +26,11 @@ module Admin
 
       respond_to do |format|
         if @payment.save
-          format.html { redirect_to admin_subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), notice: t('.created') } # rubocop:disable Metrics/LineLength
+          format.html { redirect_to admin_subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), notice: t('.created') }
           format.json { render :show, status: :created }
         else
           format.html { render :new }
-          format.json { render json: @payment.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @payment.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -40,11 +40,11 @@ module Admin
     def update
       respond_to do |format|
         if @payment.update(payment_params)
-          format.html { redirect_to admin_subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), notice: t('.updated') } # rubocop:disable Metrics/LineLength
+          format.html { redirect_to admin_subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), notice: t('.updated') }
           format.json { render :show, status: :ok }
         else
           format.html { render :edit }
-          format.json { render json: @payment.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @payment.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -54,7 +54,7 @@ module Admin
     def destroy
       @payment.destroy
       respond_to do |format|
-        format.html { redirect_to admin_subscription_path(@subscription), notice: t('.destroyed') } # rubocop:disable Metrics/LineLength
+        format.html { redirect_to admin_subscription_path(@subscription), notice: t('.destroyed') }
         format.json { head :no_content }
       end
     end

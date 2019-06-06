@@ -35,7 +35,7 @@ module Admin
           format.json { render :show, status: :created, location: @producer }
         else
           format.html { render :new }
-          format.json { render json: @producer.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @producer.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -49,7 +49,7 @@ module Admin
           format.json { render :show, status: :ok, location: @producer }
         else
           format.html { render :edit }
-          format.json { render json: @producer.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @producer.errors, status: :unprocessable_entity }
         end
       end
     end

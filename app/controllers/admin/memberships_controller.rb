@@ -26,11 +26,11 @@ module Admin
 
       respond_to do |format|
         if @membership.save
-          format.html { redirect_to admin_member_membership_path(id: @membership.id, member_id: @member.id), notice: t('.created') } # rubocop:disable Metrics/LineLength
+          format.html { redirect_to admin_member_membership_path(id: @membership.id, member_id: @member.id), notice: t('.created') }
           format.json { render :show, status: :created, location: @membership }
         else
           format.html { render :new }
-          format.json { render json: @membership.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @membership.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -40,11 +40,11 @@ module Admin
     def update
       respond_to do |format|
         if @membership.update(membership_params)
-          format.html { redirect_to admin_member_membership_path(id: @membership.id, member_id: @member.id), notice: t('.updated') } # rubocop:disable Metrics/LineLength
+          format.html { redirect_to admin_member_membership_path(id: @membership.id, member_id: @member.id), notice: t('.updated') }
           format.json { render :show, status: :ok, location: @membership }
         else
           format.html { render :edit }
-          format.json { render json: @membership.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @membership.errors, status: :unprocessable_entity }
         end
       end
     end

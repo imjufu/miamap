@@ -18,6 +18,11 @@ Documentation:
 Style/EmptyMethod:
   Enabled: false
 
+Metrics/LineLength:
+  Exclude:
+    - 'app/controllers/**/*'
+    - 'spec/**/*'
+
 Metrics/AbcSize:
   Enabled: false
 

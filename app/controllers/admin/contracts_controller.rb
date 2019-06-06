@@ -26,11 +26,11 @@ module Admin
 
       respond_to do |format|
         if @contract.save
-          format.html { redirect_to admin_producer_contract_path(id: @contract.id, producer_id: @producer.id), notice: t('.created') } # rubocop:disable Metrics/LineLength
+          format.html { redirect_to admin_producer_contract_path(id: @contract.id, producer_id: @producer.id), notice: t('.created') }
           format.json { render :show, status: :created, location: @contract }
         else
           format.html { render :new }
-          format.json { render json: @contract.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @contract.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -40,11 +40,11 @@ module Admin
     def update
       respond_to do |format|
         if @contract.update(contract_params)
-          format.html { redirect_to admin_producer_contract_path(id: @contract.id, producer_id: @producer.id), notice: t('.updated') } # rubocop:disable Metrics/LineLength
+          format.html { redirect_to admin_producer_contract_path(id: @contract.id, producer_id: @producer.id), notice: t('.updated') }
           format.json { render :show, status: :ok, location: @contract }
         else
           format.html { render :edit }
-          format.json { render json: @contract.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @contract.errors, status: :unprocessable_entity }
         end
       end
     end

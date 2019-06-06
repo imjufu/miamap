@@ -32,10 +32,10 @@ module Admin
       respond_to do |format|
         if @membership_form.save
           format.html { redirect_to admin_membership_form_path(@membership_form), notice: t('.created') }
-          format.json { render :show, status: :created, location: @membership_form } # rubocop:disable Metrics/LineLength
+          format.json { render :show, status: :created, location: @membership_form }
         else
           format.html { render :new }
-          format.json { render json: @membership_form.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @membership_form.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -49,7 +49,7 @@ module Admin
           format.json { render :show, status: :ok, location: @membership_form }
         else
           format.html { render :edit }
-          format.json { render json: @membership_form.errors, status: :unprocessable_entity } # rubocop:disable Metrics/LineLength
+          format.json { render json: @membership_form.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -59,7 +59,7 @@ module Admin
     def destroy
       @membership_form.destroy
       respond_to do |format|
-        format.html { redirect_to admin_membership_forms_url, notice: t('.destroyed') } # rubocop:disable Metrics/LineLength
+        format.html { redirect_to admin_membership_forms_url, notice: t('.destroyed') }
         format.json { head :no_content }
       end
     end

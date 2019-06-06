@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  layout :layout_by_resource
 
-  rescue_from CanCan::AccessDenied do |exception|
-    Rails.logger.debug "Access denied on #{exception.action}"\
-      " #{exception.subject.inspect}"
-    raise
+  private
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :user
+      'admin/layouts/application'
+    else
+      'application'
+    end
   end
 end

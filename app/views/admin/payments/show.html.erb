@@ -1,0 +1,15 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('payments.title', id: @payment.id) %></h1>
+  <%= link_to(t('actions.edit'), edit_admin_subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), class: 'btn btn-primary') if can? :update, @payment %>
+  <%= link_to(t('actions.delete'), admin_subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @payment %>
+  <%= link_to t('actions.back_html'), admin_subscription_path(@subscription), class: 'btn btn-light' %>
+</div>
+
+<dl class="row">
+  <dt class="col-sm-3"><%= t('activerecord.attributes.payment.payed_at') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @payment.payed_at, format: :short %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.payment.means') %></dt>
+  <dd class="col-sm-9"><%= humanize_payment_means @payment.means %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.payment.amount') %></dt>
+  <dd class="col-sm-9"><%= humanized_money_with_symbol @payment.amount %></dd>
+</dl>

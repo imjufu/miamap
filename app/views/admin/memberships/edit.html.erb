@@ -1,0 +1,6 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('memberships.title', id: @membership.id) %></h1>
+  <%= link_to t('actions.cancel'), admin_member_path(@membership.member), class: 'btn btn-light' %>
+</div>
+
+<%= render 'form', member: @membership.member, membership: @membership %>

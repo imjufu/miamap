@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('producers.list') %></h1>
+  <%= link_to(t('producers.new'), new_admin_producer_path, class: 'btn btn-primary') if can? :create, Producer %>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t('activerecord.attributes.producer.email_address') %></th>
+      <th><%= t('activerecord.attributes.producer.postal_code') %></th>
+      <th><%= t('activerecord.attributes.producer.city') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @producers.each do |producer| %>
+      <tr>
+        <td><%= link_to producer.name, admin_producer_path(producer) %></td>
+        <td><%= producer.email_address %></td>
+        <td><%= producer.postal_code %></td>
+        <td><%= producer.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @producers %>

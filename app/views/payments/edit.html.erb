@@ -1,6 +1,0 @@
-<div class="d-flex align-items-center mb-3">
-  <h1 class="h1 mr-2"><%= t('payments.title', id: @payment.id) %></h1>
-  <%= link_to t('actions.back_html'), subscription_payment_path(id: @payment.id, subscription_id: @subscription.id), class: 'btn btn-light' %>
-</div>
-
-<%= render 'form', subscription: @subscription, payment: @payment %>

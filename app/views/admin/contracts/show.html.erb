@@ -1,0 +1,12 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @contract.title %></h1>
+  <%= link_to(t('actions.edit'), edit_admin_producer_contract_path(id: @contract.id, producer_id: @contract.producer_id), class: 'btn btn-primary') if can? :update, @contract %>
+  <%= link_to(t('actions.delete'), admin_producer_contract_path(id: @producer.id, producer_id: @contract.producer_id), method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @contract %>
+  <%= link_to t('actions.back_html'), admin_producer_path(@contract.producer), class: 'ml-1 btn btn-light' %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <%= @contract.real_content %>
+  </div>
+</div>

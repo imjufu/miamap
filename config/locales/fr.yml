@@ -1,7 +1,8 @@
 fr:
   project:
-    name: miamap
-    name_html: <i class="fas fa-carrot"></i> miamap
+    name: Miamap
+    admin: administration
+    name_html: <i class="fas fa-carrot"></i> Miamap
     welcome_html: <i class="far fa-hand-peace"></i> Bienvenue, %{user}
   actions:
     save: Enregistrer
@@ -16,6 +17,8 @@ fr:
     sure?: Êtes-vous sûr·e ?
     print: Imprimer
   navbar:
+    go_to_admin: Espace administrateur
+    back_to_the_root_html: <i class="fas fa-long-arrow-alt-left"></i> Retour à l'espace membre
     administration_html: <i class="fas fa-cogs"></i> Administration
     users: Utilisateur·trices
     members_html: <i class="fas fa-child"></i> Membres

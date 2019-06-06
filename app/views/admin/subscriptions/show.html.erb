@@ -1,0 +1,67 @@
+<% unless @subscription.signed_by_the_member? %>
+<div class="alert alert-warning" role="alert">
+  <%=  t('subscriptions.member_signature_missing') %>
+</div>
+<% end %>
+
+<% unless @subscription.signed_by_the_producer? %>
+<div class="alert alert-warning" role="alert">
+  <%=  t('subscriptions.producer_signature_missing') %>
+</div>
+<% end %>
+
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('subscriptions.title', id: @subscription.id) %></h1>
+  <%= link_to t('subscriptions.preview'), preview_admin_subscription_path(@subscription), class: 'btn btn-primary' %>
+  <%= link_to(t('actions.delete'), admin_subscription_path(@subscription), method: :delete, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :destroy, @subscription %>
+  <%= link_to t('actions.back_to_the_list_html'), admin_subscriptions_path, class: 'ml-1 btn btn-light' %>
+</div>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true"><%= t('subscriptions.info') %></a>
+    <a class="nav-item nav-link" id="nav-payments-tab" data-toggle="tab" href="#nav-payments" role="tab" aria-controls="nav-payments" aria-selected="true"><%= t('subscriptions.payments') %></a>
+  </div>
+</nav>
+
+<div class="tab-content mt-3" id="nav-tabContent">
+  <div class="tab-pane show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+    <dl class="row">
+      <dt class="col-sm-3"><%= t('activerecord.attributes.subscription.subscribed_at') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @subscription.subscribed_at %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.subscription.member_id') %></dt>
+      <dd class="col-sm-9"><%= @subscription.member.full_name %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.subscription.contract_id') %></dt>
+      <dd class="col-sm-9"><%= @subscription.contract.title %></dd>
+      <dt class="col-sm-3"><%= t('activerecord.attributes.contract.producer_id') %></dt>
+      <dd class="col-sm-9"><%= @subscription.contract.producer.name %></dd>
+      <dt class="col-sm-3"><%= t('subscriptions.member_signature') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @subscription.member_accepted_at %></dd>
+      <dt class="col-sm-3"><%= t('subscriptions.producer_signature') %></dt>
+      <dd class="col-sm-9"><%= humanize_dt @subscription.producer_accepted_at %></dd>
+    </dl>
+  </div>
+  <div class="tab-pane show" id="nav-payments" role="tabpanel" aria-labelledby="nav-payments-tab">
+    <%= link_to t('payments.new'), new_admin_subscription_payment_path(subscription_id: @subscription.id), class: 'btn btn-primary mb-3' %>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= t('activerecord.attributes.payment.payed_at') %></th>
+          <th><%= t('activerecord.attributes.payment.means') %></th>
+          <th><%= t('activerecord.attributes.payment.amount') %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @subscription.payments.each do |payment| %>
+      <tr>
+        <td><%= link_to t('payments.title', id: payment.id), admin_subscription_payment_path(subscription_id: @subscription.id) %></td>
+        <td><%= humanize_dt payment.payed_at, format: :short %></td>
+        <td><%= humanize_payment_means payment.means %></td>
+        <td><%= humanized_money_with_symbol payment.amount %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

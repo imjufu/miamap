@@ -1,0 +1,6 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('subscriptions.new') %></h1>
+  <%= link_to t('actions.back_to_the_list_html'), admin_subscriptions_path, class: 'btn btn-light' %>
+</div>
+
+<%= render 'form', subscription: @subscription %>

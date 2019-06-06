@@ -1,0 +1,23 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('users.list') %></h1>
+  <%= link_to(t('users.new'), new_admin_user_path, class: 'btn btn-primary') if can? :create, User %>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t('activerecord.attributes.user.email') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.full_name, admin_user_path(user) %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>

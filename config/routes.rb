@@ -18,7 +18,12 @@ Rails.application.routes.draw do
     root to: 'welcome#index'
   end
 
+  namespace :member_room do
+    root to: 'welcome#index'
+  end
+
   devise_for :users, path: 'admin'
+  devise_for :members, path: 'member_room'
 
   root to: 'welcome#index'
 end

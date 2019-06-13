@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if devise_controller? && resource_name == :user
       'admin/layouts/application'
+    elsif devise_controller? && resource_name == :member
+      'member_room/layouts/application'
     else
       'application'
     end
@@ -16,6 +18,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :user
       new_user_session_path
+    elsif resource_or_scope == :member
+      new_member_session_path
     else
       root_path
     end

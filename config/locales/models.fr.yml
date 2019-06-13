@@ -10,7 +10,8 @@ fr:
         last_name: Nom
         password: Mot de passe
       member:
-        email_address: Courriel
+        email: Courriel
+        password: Mot de passe
         first_name: Prénom
         date_of_birth: Date de naissance
         last_name: Nom

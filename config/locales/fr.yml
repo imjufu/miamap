@@ -40,6 +40,7 @@ fr:
     list: Membres
     new: Nouveau·velle membre
     memberships: Adhésions
+    security: Sécurité
   membership_forms:
     list: Fiches d'adhésion
     new: Nouvelle fiche d'adhésion

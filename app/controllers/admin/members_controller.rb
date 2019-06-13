@@ -2,6 +2,8 @@
 
 module Admin
   class MembersController < AdminController
+    include RemoveBlankPasswordConcern
+
     load_and_authorize_resource
 
     # GET /members
@@ -49,6 +51,8 @@ module Admin
     # PATCH/PUT /members/1
     # PATCH/PUT /members/1.json
     def update
+      remove_blank_password_for(:member)
+
       respond_to do |format|
         if @member.update(member_params)
           format.html { redirect_to admin_member_path(@member), notice: t('.updated') }
@@ -76,8 +80,8 @@ module Admin
     # the white list through.
     def member_params
       params.require(:member).permit(
-        :first_name, :last_name, :email_address, :address, :postal_code,
-        :city, :date_of_birth
+        :first_name, :last_name, :email, :address, :postal_code,
+        :city, :date_of_birth, :password
       )
     end
   end

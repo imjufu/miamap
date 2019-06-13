@@ -8,7 +8,7 @@
     <tr>
       <th></th>
       <th><%= t('activerecord.attributes.member.date_of_birth') %></th>
-      <th><%= t('activerecord.attributes.member.email_address') %></th>
+      <th><%= t('activerecord.attributes.member.email') %></th>
       <th><%= t('activerecord.attributes.member.postal_code') %></th>
       <th><%= t('activerecord.attributes.member.city') %></th>
     </tr>
@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to member.full_name, admin_member_path(member) %></td>
         <td><%= humanize_dt member.date_of_birth %></td>
-        <td><%= member.email_address %></td>
+        <td><%= member.email %></td>
         <td><%= member.postal_code %></td>
         <td><%= member.city %></td>
       </tr>

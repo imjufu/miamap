@@ -12,6 +12,7 @@ fr:
       member:
         email: Courriel
         password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
         first_name: Prénom
         date_of_birth: Date de naissance
         last_name: Nom

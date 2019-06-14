@@ -4,9 +4,10 @@ class Member < ApplicationRecord
   acts_as_paranoid
 
   # Include default devise modules. Others available are:
-  # :registerable and :omniauthable
+  # :omniauthable
   devise :database_authenticatable, :confirmable, :lockable, :trackable,
-         :recoverable, :rememberable, :validatable, :timeoutable
+         :recoverable, :rememberable, :validatable, :timeoutable,
+         :registerable
 
   has_many :subscriptions, dependent: :destroy
   has_many :memberships, dependent: :destroy

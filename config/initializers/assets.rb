@@ -14,5 +14,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 Rails.application.config.assets.precompile += %w[
-  admin/subscriptions_preview.css
+  admin_room/subscriptions_preview.css
 ]

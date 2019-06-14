@@ -9,5 +9,5 @@ class AdminController < ActionController::Base
     raise
   end
 
-  layout 'admin/layouts/application'
+  layout 'admin_room/layouts/application'
 end

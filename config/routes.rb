@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :admin do
+  namespace :admin_room do
     resources :users
     resources :members do
       resources :memberships, except: %i[index]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     root to: 'welcome#index'
   end
 
-  devise_for :users, path: 'admin'
+  devise_for :users, path: 'admin_room'
   devise_for :members, path: 'member_room'
 
   root to: 'welcome#index'

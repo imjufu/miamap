@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-3">
+    <%= render 'menu', registration_request: @registration_request %>
+  </div>
+  <div class="col-9">
+    <h4><%= t('.congratulations', first_name: @registration_request.first_name) %></h4>
+  </div>
+</div>

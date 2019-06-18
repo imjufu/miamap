@@ -1,0 +1,23 @@
+fr:
+  members_sign_up:
+    menu:
+      step_1: 1. On se connait ?
+      step_2: 2. Comment vous appelez-vous ?
+      step_3: 3. Où habitez-vous ?
+      step_4: 4. Merci !
+      reset: Réinitialiser ma pré-inscription
+    step_1:
+      title: Nous sommes très heureux de vous accueillir parmis nous…
+      subtitle: Tout d'abord, quel est votre courriel ?
+      email_help: Nous avons besoin de votre courriel pour savoir si vous n'avez pas déjà un compte ici.
+      no_gafa_html: Pas d'inquiétude, vos données sont bien en sécurité chez nous.<br>Nous n'allons pas les revendre ni les donner :-)
+      next: Continuer
+    step_2:
+      title_html: Comment vous appelez-vous, %{email} ?
+      date_of_birth: Et quelle est votre date de naissance ?
+      next: Continuer
+    step_3:
+      title_html: Et où habitez-vous %{first_name} ? <i class="fas fa-home"></i>
+      next: Continuer
+    step_4:
+      congratulations: Merci %{first_name}, votre pré-inscription vient d'être transmise à un·e amapien·ne !

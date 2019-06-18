@@ -6,8 +6,7 @@ class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :omniauthable
   devise :database_authenticatable, :confirmable, :lockable, :trackable,
-         :recoverable, :rememberable, :validatable, :timeoutable,
-         :registerable
+         :recoverable, :rememberable, :validatable, :timeoutable
 
   has_many :subscriptions, dependent: :destroy
   has_many :memberships, dependent: :destroy

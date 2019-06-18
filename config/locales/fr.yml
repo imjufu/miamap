@@ -30,8 +30,8 @@ fr:
   errors:
     messages:
       saving_failed:
-        one: Oops… Une erreur empêche l'enregistrement
-        other: " Oops… %{count} erreurs empêchent l'enregistrement"
+        one: " Oops… Une erreur empêche de continuer."
+        other: " Oops… %{count} erreurs empêchent de continuer."
   users:
     list: Utilisateur·trices
     new: Nouvel·le utilisateur·trice

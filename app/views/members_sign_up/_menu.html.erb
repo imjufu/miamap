@@ -1,0 +1,8 @@
+<div class="nav flex-column nav-pills mb-4" role="tablist" aria-orientation="vertical">
+  <% [*1..4].each do |i| %>
+  <% disabled = (registration_request && i == 1) || (registration_request.new_record? && i > 1) || (i > registration_request.step) %>
+  <%= link_to t(".step_#{i}"), send("members_sign_up_step_#{i}_path"), class: "nav-link #{ action_name =~ /step_#{i}/ ? 'active' : nil } #{ disabled ? 'disabled' : nil }" %>
+  <% end %>
+</div>
+
+<%= link_to t('.reset'), members_sign_up_path, method: :delete, class: 'btn btn-sm btn-outline-dark w-100' unless registration_request.new_record? %>

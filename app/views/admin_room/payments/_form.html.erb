@@ -1,0 +1,16 @@
+<%= form_with(model: [:admin_room, subscription, payment], local: true) do |form| %>
+  <%= render 'shared/errors', errors: payment.errors %>
+  <div class="form-group">
+    <%= form.label :payed_at %>
+    <%= form.datetime_local_field :payed_at, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :means %>
+    <%= form.select :means, options_for_select([[humanize_payment_means(PaymentMeans::ALL[:check][:code]), PaymentMeans::ALL[:check][:code]]], payment.means), {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, class: 'form-control' %>
+  </div>
+  <%= form.submit t('actions.save'), class: 'btn btn-primary' %>
+<% end %>

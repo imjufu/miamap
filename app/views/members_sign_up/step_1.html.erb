@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-3">
+    <%= render 'menu', registration_request: @registration_request %>
+  </div>
+  <div class="col-9">
+    <h1 class="h3"><%= t('.title') %></h1>
+    <h2 class="h4"><%= t('.subtitle') %></h2>
+    <%= render 'shared/errors', errors: @registration_request.errors %>
+    <%= form_for(@registration_request, url: members_sign_up_step_1_path) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+        <small class="form-text text-muted"><%= t('.email_help') %></small>
+      </div>
+      <%= f.submit t('.next'), class: 'btn btn-primary' %>
+    <% end %>
+    <p class="text-muted mt-3"><%= t('.no_gafa_html') %></p>
+  </div>
+</div>

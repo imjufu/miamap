@@ -1,57 +1,58 @@
 fr:
-  users:
-    create:
-      created: "Utilisateur·trice créé·e."
-    update:
-      updated: "Utilisateur·trice modifié·e."
-    destroy:
-      destroyed: "Utilisateur·trice supprimé·e."
-  members:
-    create:
-      created: "Membre créé·e."
-    update:
-      updated: "Membre modifié·e."
-    destroy:
-      destroyed: "Membre supprimé·e."
-  producers:
-    create:
-      created: "Producteur·trice créé·e."
-    update:
-      updated: "Producteur·trice modifié·e."
-    destroy:
-      destroyed: "Producteur·trice supprimé·e."
-  contracts:
-    create:
-      created: "Contrat créé."
-    update:
-      updated: "Contrat modifié."
-    destroy:
-      destroyed: "Contrat supprimé."
-  subscriptions:
-    create:
-      created: "Souscription créée."
-    update:
-      updated: "Souscription modifiée."
-    destroy:
-      destroyed: "Souscription supprimée."
-  payments:
-    create:
-      created: "Paiement créé."
-    update:
-      updated: "Paiement modifié."
-    destroy:
-      destroyed: "Paiement supprimé."
-  membership_forms:
-    create:
-      created: "Fiche d'adhésion créée."
-    update:
-      updated: "Fiche d'adhésion modifiée."
-    destroy:
-      destroyed: "Fiche d'adhésion supprimée."
-  memberships:
-    create:
-      created: "Adhésion créée."
-    update:
-      updated: "Adhésion modifiée."
-    destroy:
-      destroyed: "Adhésion supprimée."
+  admin:
+    users:
+      create:
+        created: "Utilisateur·trice créé·e."
+      update:
+        updated: "Utilisateur·trice modifié·e."
+      destroy:
+        destroyed: "Utilisateur·trice supprimé·e."
+    members:
+      create:
+        created: "Membre créé·e."
+      update:
+        updated: "Membre modifié·e."
+      destroy:
+        destroyed: "Membre supprimé·e."
+    producers:
+      create:
+        created: "Producteur·trice créé·e."
+      update:
+        updated: "Producteur·trice modifié·e."
+      destroy:
+        destroyed: "Producteur·trice supprimé·e."
+    contracts:
+      create:
+        created: "Contrat créé."
+      update:
+        updated: "Contrat modifié."
+      destroy:
+        destroyed: "Contrat supprimé."
+    subscriptions:
+      create:
+        created: "Souscription créée."
+      update:
+        updated: "Souscription modifiée."
+      destroy:
+        destroyed: "Souscription supprimée."
+    payments:
+      create:
+        created: "Paiement créé."
+      update:
+        updated: "Paiement modifié."
+      destroy:
+        destroyed: "Paiement supprimé."
+    membership_forms:
+      create:
+        created: "Fiche d'adhésion créée."
+      update:
+        updated: "Fiche d'adhésion modifiée."
+      destroy:
+        destroyed: "Fiche d'adhésion supprimée."
+    memberships:
+      create:
+        created: "Adhésion créée."
+      update:
+        updated: "Adhésion modifiée."
+      destroy:
+        destroyed: "Adhésion supprimée."

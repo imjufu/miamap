@@ -3,11 +3,15 @@
 class Member < ApplicationRecord
   acts_as_paranoid
 
+  # Include default devise modules. Others available are:
+  # :omniauthable
+  devise :database_authenticatable, :confirmable, :lockable, :trackable,
+         :recoverable, :rememberable, :validatable, :timeoutable
+
   has_many :subscriptions, dependent: :destroy
   has_many :memberships, dependent: :destroy
 
   validates :first_name, :last_name, :address, :city, presence: true
-  validates :email_address, email: true
   validates :date_of_birth, date: {
     before: ->(_record) { Time.now.in_time_zone }
   }

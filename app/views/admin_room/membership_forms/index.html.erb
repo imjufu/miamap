@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('membership_forms.list') %></h1>
+  <%= link_to(t('membership_forms.new'), new_admin_room_membership_form_path, class: 'btn btn-primary') if can? :create, MembershipForm %>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.membership_form.title') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @membership_forms.each do |membership_form| %>
+      <tr>
+        <td><%= link_to membership_form.title, admin_room_membership_form_path(membership_form) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @membership_forms %>

@@ -3,14 +3,29 @@ fr:
     errors:
       messages:
         not_a_date: n'est pas une date valide
+      models:
+        member_registration_request:
+          attributes:
+            base:
+              already_a_member: Après vérification, tu as déjà un compte chez nous. Tu peux essayer de te connecter depuis la page d'accueil. Toutefois, si tu es bloqué, n'hésites pas à nous contacter pour qu'on puisse t'aider :-)
     attributes:
+      member_registration_request:
+        email: Courriel
+        first_name: Prénom
+        last_name: Nom
+        date_of_birth: Date de naissance
+        address: Adresse
+        postal_code: Code postal
+        city: Ville
       user:
         email: Courriel
         first_name: Prénom
         last_name: Nom
         password: Mot de passe
       member:
-        email_address: Courriel
+        email: Courriel
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
         first_name: Prénom
         date_of_birth: Date de naissance
         last_name: Nom

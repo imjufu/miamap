@@ -1,7 +1,9 @@
 fr:
   project:
-    name: miamap
-    name_html: <i class="fas fa-carrot"></i> miamap
+    name: Miamap
+    admin: administration
+    member: membre
+    name_html: <i class="fas fa-carrot"></i> Miamap
     welcome_html: <i class="far fa-hand-peace"></i> Bienvenue, %{user}
   actions:
     save: Enregistrer
@@ -16,6 +18,9 @@ fr:
     sure?: Êtes-vous sûr·e ?
     print: Imprimer
   navbar:
+    go_to_member: Espace membre
+    go_to_admin: Espace administrateur
+    back_to_the_root_html: <i class="fas fa-long-arrow-alt-left"></i> Retour
     administration_html: <i class="fas fa-cogs"></i> Administration
     users: Utilisateur·trices
     members_html: <i class="fas fa-child"></i> Membres
@@ -25,18 +30,30 @@ fr:
   errors:
     messages:
       saving_failed:
-        one: Oops… Une erreur empêche l'enregistrement
-        other: " Oops… %{count} erreurs empêchent l'enregistrement"
+        one: " Oops… Une erreur empêche de continuer."
+        other: " Oops… %{count} erreurs empêchent de continuer."
   users:
     list: Utilisateur·trices
     new: Nouvel·le utilisateur·trice
     profile: Profil
     security: Sécurité
+  welcome:
+    new_members:
+      title: Nouvel·le amapien
+      subtitle: Bienvenue !
+      description_html: Tu souhaites adhérer à l'AMAP ?<br>Tu peux préparer ton inscription à l'avance afin de gagner du temps le jour des inscriptions.
+      go: Je prépare mon inscription
+    old_members:
+      title: Ancien·ne amapien·ne
+      subtitle: Mon espace
+      description_html: "Tu es déjà adhérent·e à l'AMAP ?<br>À partir de ton espace personnel, tu peux : modifier tes informations, accéder à tes contrats, renouveller un contrat…"
+      go: Je souhaite me connecter
   members:
     profile: Profil
     list: Membres
     new: Nouveau·velle membre
     memberships: Adhésions
+    security: Sécurité
   membership_forms:
     list: Fiches d'adhésion
     new: Nouvelle fiche d'adhésion

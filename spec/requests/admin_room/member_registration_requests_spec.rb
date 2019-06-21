@@ -23,7 +23,7 @@ RSpec.describe 'AdminRoom::MemberRegistrationRequest', type: :request do
         end
 
         it 'displays the member registration requests page' do
-          expect(response.body).to match('Nouvelles inscriptions')
+          expect(response.body).to match("Demandes d'inscription")
         end
       end
     end

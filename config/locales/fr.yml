@@ -22,7 +22,7 @@ fr:
     go_to_admin: Espace administrateur
     back_to_the_root_html: <i class="fas fa-long-arrow-alt-left"></i> Retour
     administration_html: <i class="fas fa-cogs"></i> Administration
-    member_registration_requests_html: <i class="fas fa-user-ninja"></i> Nouvelles inscriptions
+    member_registration_requests_html: <i class="fas fa-user-ninja"></i> Demandes d'inscription
     users: Utilisateur·trices
     members_html: <i class="fas fa-child"></i> Membres
     producers_html: <i class="fas fa-tractor"></i> Producteur·trices
@@ -56,7 +56,7 @@ fr:
     memberships: Adhésions
     security: Sécurité
   member_registration_requests:
-    list: Nouvelles inscriptions
+    list: Demandes d'inscription
   membership_forms:
     list: Fiches d'adhésion
     new: Nouvelle fiche d'adhésion

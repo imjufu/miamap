@@ -20,6 +20,20 @@ class MemberRegistrationRequest < ApplicationRecord
     "#{first_name&.capitalize} #{last_name&.upcase}"
   end
 
+  def accept!(user:, accepted_at: Time.current)
+    transaction do
+      update(accepted_at: accepted_at, accepted_by: user)
+
+      Member.create!(
+        as_json(
+          only: %i[
+            first_name last_name date_of_birth email address postal_code city
+          ]
+        ).merge(password: SecureRandom.hex)
+      )
+    end
+  end
+
   private
 
   def set_identifier

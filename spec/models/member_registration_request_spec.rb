@@ -20,6 +20,33 @@ RSpec.describe MemberRegistrationRequest, type: :model do
     end
   end
 
+  describe '#accept!' do
+    let(:now) { Time.current }
+    let(:user) { FactoryBot.create(:user) }
+
+    it 'updates the accepted_at field' do
+      expect do
+        subject.accept!(user: user, accepted_at: now)
+      end.to change(subject, :accepted_at).from(nil).to(now)
+    end
+
+    it 'updates the accepted_by field' do
+      expect do
+        subject.accept!(user: user, accepted_at: now)
+      end.to change(subject, :accepted_by).from(nil).to(user)
+    end
+
+    it 'creates a Member' do
+      expect do
+        subject.accept!(user: user, accepted_at: now)
+      end.to change(Member, :count).by(+1)
+    end
+
+    it 'returns a Member' do
+      expect(subject.accept!(user: user, accepted_at: now)).to eq(Member.last)
+    end
+  end
+
   describe '#set_identifier' do
     let(:uuid) { 'c92de2bf-58ec-45d4-ad32-60d2feb4ea12' }
 

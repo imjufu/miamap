@@ -7,6 +7,9 @@
     <% if user_signed_in? %>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        <%= link_to t('navbar.member_registration_requests_html'), admin_room_member_registration_requests_path, class: 'nav-link' if can? :read, MemberRegistrationRequest %>
+      </li>
+      <li class="nav-item">
         <%= link_to t('navbar.subscriptions_html'), admin_room_subscriptions_path, class: 'nav-link' if can? :read, Subscription %>
       </li>
       <li class="nav-item">

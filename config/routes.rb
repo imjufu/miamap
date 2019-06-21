@@ -3,6 +3,10 @@
 Rails.application.routes.draw do
   namespace :admin_room do
     resources :users
+    resources :member_registration_requests, only: %i[index show] do
+      put :accept, on: :member
+      put :refuse, on: :member
+    end
     resources :members do
       resources :memberships, except: %i[index]
     end

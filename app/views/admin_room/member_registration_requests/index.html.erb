@@ -1,0 +1,28 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= t('member_registration_requests.list') %></h1>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.member_registration_request.email') %></th>
+      <th><%= t('activerecord.attributes.member_registration_request.full_name') %></th>
+      <th><%= t('activerecord.attributes.member_registration_request.postal_code') %></th>
+      <th><%= t('activerecord.attributes.member_registration_request.city') %></th>
+      <th><%= t('activerecord.attributes.member_registration_request.created_at') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @member_registration_requests.each do |member_registration_request| %>
+      <tr>
+        <td><%= link_to member_registration_request.email, admin_room_member_registration_request_path(member_registration_request) %></td>
+        <td><%= member_registration_request.full_name %></td>
+        <td><%= member_registration_request.postal_code %></td>
+        <td><%= member_registration_request.city %></td>
+        <td><%= humanize_dt member_registration_request.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @member_registration_requests %>

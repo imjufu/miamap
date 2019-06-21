@@ -7,16 +7,24 @@ fr:
         member_registration_request:
           attributes:
             base:
-              already_a_member: Après vérification, tu as déjà un compte chez nous. Tu peux essayer de te connecter depuis la page d'accueil. Toutefois, si tu es bloqué, n'hésites pas à nous contacter pour qu'on puisse t'aider :-)
+              already_accepted: Demande d'inscription déjà acceptée
+              already_refused: Demande d'inscription déjà refusée
+              already_a_member: Après vérification, vous avez déjà un compte chez nous. Vous pouvez essayer de vous connecter depuis la page d'accueil. Toutefois, si vous êtes bloqué, n'hésitez pas à nous contacter pour qu'on puisse vous aider.
     attributes:
       member_registration_request:
         email: Courriel
         first_name: Prénom
         last_name: Nom
+        full_name: Nom complet
         date_of_birth: Date de naissance
         address: Adresse
         postal_code: Code postal
         city: Ville
+        created_at: Enregistrée le
+        accepted_at: Acceptée le
+        accepted_by: Acceptée par
+        refused_at: Refusée le
+        refused_by: Refusée par
       user:
         email: Courriel
         first_name: Prénom

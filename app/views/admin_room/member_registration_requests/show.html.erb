@@ -1,0 +1,31 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @member_registration_request.email %></h1>
+  <% unless @member_registration_request.accepted_or_refused? %>
+  <%= link_to(t('.accept'), accept_admin_room_member_registration_request_path(@member_registration_request), method: :put, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-primary') if can? :accept, @member_registration_request %>
+  <%= link_to(t('.refuse'), refuse_admin_room_member_registration_request_path(@member_registration_request), method: :put, data: { confirm: t('actions.sure?') }, class: 'ml-1 btn btn-danger') if can? :refuse, @member_registration_request %>
+  <% end %>
+</div>
+
+<dl class="row">
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.full_name') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.full_name %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.date_of_birth') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @member_registration_request.date_of_birth %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.email') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.email %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.address') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.address %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.postal_code') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.postal_code %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.city') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.city %></dd>
+
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.accepted_at') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @member_registration_request.accepted_at %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.accepted_by') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.accepted_by&.full_name %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.refused_at') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @member_registration_request.refused_at %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.refused_by') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.refused_by&.full_name %></dd>
+</dl>

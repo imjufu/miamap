@@ -1,5 +1,10 @@
 fr:
-  admin:
+  admin_room:
+    member_registration_requests:
+      accept:
+        accepted: "Demande d'inscription acceptée."
+      refuse:
+        refused: "Demande d'inscription refusée."
     users:
       create:
         created: "Utilisateur·trice créé·e."

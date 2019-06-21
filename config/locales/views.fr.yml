@@ -1,4 +1,9 @@
 fr:
+  admin_room:
+    member_registration_requests:
+      show:
+        accept: Accepter
+        refuse: Refuser
   members_sign_up:
     menu:
       step_1: 1. On se connait ?

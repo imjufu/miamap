@@ -21,6 +21,10 @@ fr:
         postal_code: Code postal
         city: Ville
         created_at: Enregistrée le
+        accepted_at: Acceptée le
+        accepted_by: Acceptée par
+        refused_at: Refusée le
+        refused_by: Refusée par
       user:
         email: Courriel
         first_name: Prénom

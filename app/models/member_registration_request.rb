@@ -17,6 +17,10 @@ class MemberRegistrationRequest < ApplicationRecord
   }
   validate :not_already_a_member
 
+  scope :not_accepted_or_refused_yet, lambda {
+    where(accepted_at: nil).where(refused_at: nil)
+  }
+
   accepts_nested_attributes_for :member
 
   def full_name
@@ -46,6 +50,10 @@ class MemberRegistrationRequest < ApplicationRecord
 
   def refused?
     refused_at.present?
+  end
+
+  def accepted_or_refused?
+    accepted? || refused?
   end
 
   private

@@ -10,33 +10,28 @@ class MemberRegistrationRequest < ApplicationRecord
   validates :email, email: true
   validates :identifier, presence: true
   validates :first_name, :last_name, :date_of_birth,
-            presence: true, if: proc { |m| m.step > 1 }
-  validates :address, :city, presence: true, if: proc { |m| m.step > 2 }
+            presence: true, if: proc { |m| (m.step || 0) > 1 }
+  validates :address, :city, presence: true, if: proc { |m| (m.step || 0) > 2 }
   validates :postal_code, postal_code: { country: :fr }, if: proc { |m|
-    m.step > 2
+    (m.step || 0) > 2
   }
   validate :not_already_a_member
+
+  accepts_nested_attributes_for :member
 
   def full_name
     "#{first_name&.capitalize} #{last_name&.upcase}"
   end
 
-  def accept(user:, accepted_at: Time.current) # rubocop:disable Metrics/MethodLength,Metrics/LineLength
+  def accept(user:, accepted_at: Time.current)
     return false if already_accepted_or_refused?
 
-    transaction do
-      update(accepted_at: accepted_at, accepted_by: user)
-
-      Member.create!(
-        as_json(
-          only: %i[
-            first_name last_name date_of_birth email address postal_code city
-          ]
-        ).merge(password: SecureRandom.hex)
-      )
-    end
-
-    true
+    update(
+      accepted_at: accepted_at, accepted_by: user,
+      member_attributes: as_json(only:
+        %i[first_name last_name date_of_birth email address postal_code city])
+      .merge(password: SecureRandom.hex)
+    )
   end
 
   def refuse(user:, refused_at: Time.current)

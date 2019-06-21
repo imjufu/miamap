@@ -20,47 +20,67 @@ RSpec.describe MemberRegistrationRequest, type: :model do
     end
   end
 
-  describe '#accept!' do
+  describe '#accept' do
     let(:now) { Time.current }
     let(:user) { FactoryBot.create(:user) }
 
     it 'updates the accepted_at field' do
       expect do
-        subject.accept!(user: user, accepted_at: now)
+        subject.accept(user: user, accepted_at: now)
       end.to change(subject, :accepted_at).from(nil).to(now)
     end
 
     it 'updates the accepted_by field' do
       expect do
-        subject.accept!(user: user, accepted_at: now)
+        subject.accept(user: user, accepted_at: now)
       end.to change(subject, :accepted_by).from(nil).to(user)
     end
 
-    it 'creates a Member' do
+    it 'returns  a Member' do
       expect do
-        subject.accept!(user: user, accepted_at: now)
+        subject.accept(user: user, accepted_at: now)
       end.to change(Member, :count).by(+1)
     end
 
-    it 'returns a Member' do
-      expect(subject.accept!(user: user, accepted_at: now)).to eq(Member.last)
+    it 'returns true' do
+      expect(subject.accept(user: user, accepted_at: now)).to eq(true)
+    end
+
+    context 'when the request has already been accepted' do
+      before { subject.update(accepted_at: Time.current) }
+
+      it 'returns false' do
+        expect(subject.accept(user: user, accepted_at: now)).to eq(false)
+      end
     end
   end
 
-  describe '#refuse!' do
+  describe '#refuse' do
     let(:now) { Time.current }
     let(:user) { FactoryBot.create(:user) }
 
     it 'updates the refused_at field' do
       expect do
-        subject.refuse!(user: user, refused_at: now)
+        subject.refuse(user: user, refused_at: now)
       end.to change(subject, :refused_at).from(nil).to(now)
     end
 
     it 'updates the refused_by field' do
       expect do
-        subject.refuse!(user: user, refused_at: now)
+        subject.refuse(user: user, refused_at: now)
       end.to change(subject, :refused_by).from(nil).to(user)
+    end
+
+    it 'returns true' do
+      expect(subject.refuse(user: user, refused_at: now)).to eq(true)
+    end
+
+    context 'when the request has already been refused' do
+      before { subject.update(refused_at: Time.current) }
+
+      it 'returns false' do
+        expect(subject.refuse(user: user, refused_at: now)).to eq(false)
+      end
     end
   end
 

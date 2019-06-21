@@ -20,7 +20,9 @@ class MemberRegistrationRequest < ApplicationRecord
     "#{first_name&.capitalize} #{last_name&.upcase}"
   end
 
-  def accept!(user:, accepted_at: Time.current)
+  def accept(user:, accepted_at: Time.current) # rubocop:disable Metrics/MethodLength,Metrics/LineLength
+    return false if already_accepted_or_refused?
+
     transaction do
       update(accepted_at: accepted_at, accepted_by: user)
 
@@ -32,13 +34,39 @@ class MemberRegistrationRequest < ApplicationRecord
         ).merge(password: SecureRandom.hex)
       )
     end
+
+    true
   end
 
-  def refuse!(user:, refused_at: Time.current)
+  def refuse(user:, refused_at: Time.current)
+    return false if already_accepted_or_refused?
+
     update(refused_at: refused_at, refused_by: user)
   end
 
+  def accepted?
+    accepted_at.present?
+  end
+
+  def refused?
+    refused_at.present?
+  end
+
   private
+
+  def already_accepted_or_refused?
+    if accepted?
+      errors.add(:base, :already_accepted)
+      return true
+    end
+
+    if refused?
+      errors.add(:base, :already_refused)
+      return true
+    end
+
+    false
+  end
 
   def set_identifier
     self.identifier ||= SecureRandom.uuid

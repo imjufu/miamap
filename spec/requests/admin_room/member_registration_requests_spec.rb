@@ -48,5 +48,57 @@ RSpec.describe 'AdminRoom::MemberRegistrationRequest', type: :request do
         end
       end
     end
+
+    describe 'PUT /admin_room/member_registration_requests/1/accept' do
+      let(:action) { put "/admin_room/member_registration_requests/#{member_registration_request.id}/accept" }
+
+      it_behaves_like 'a private action'
+
+      context 'when the user is logged in as an admin' do
+        before { sign_in(user) }
+
+        it 'redirects to the member registration request page' do
+          action
+          expect(response).to redirect_to(
+            admin_room_member_registration_request_path(
+              id: member_registration_request.id
+            )
+          )
+        end
+
+        it 'updates the member registration request' do
+          expect do
+            action
+            member_registration_request.reload
+          end.to change(member_registration_request, :accepted_at).from(nil).to(Time)
+        end
+      end
+    end
+
+    describe 'PUT /admin_room/member_registration_requests/1/refuse' do
+      let(:action) { put "/admin_room/member_registration_requests/#{member_registration_request.id}/refuse" }
+
+      it_behaves_like 'a private action'
+
+      context 'when the user is logged in as an admin' do
+        before { sign_in(user) }
+
+        it 'redirects to the member registration request page' do
+          action
+          expect(response).to redirect_to(
+            admin_room_member_registration_request_path(
+              id: member_registration_request.id
+            )
+          )
+        end
+
+        it 'updates the member registration request' do
+          expect do
+            action
+            member_registration_request.reload
+          end.to change(member_registration_request, :refused_at).from(nil).to(Time)
+        end
+      end
+    end
   end
 end

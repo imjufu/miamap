@@ -47,6 +47,23 @@ RSpec.describe MemberRegistrationRequest, type: :model do
     end
   end
 
+  describe '#refuse!' do
+    let(:now) { Time.current }
+    let(:user) { FactoryBot.create(:user) }
+
+    it 'updates the refused_at field' do
+      expect do
+        subject.refuse!(user: user, refused_at: now)
+      end.to change(subject, :refused_at).from(nil).to(now)
+    end
+
+    it 'updates the refused_by field' do
+      expect do
+        subject.refuse!(user: user, refused_at: now)
+      end.to change(subject, :refused_by).from(nil).to(user)
+    end
+  end
+
   describe '#set_identifier' do
     let(:uuid) { 'c92de2bf-58ec-45d4-ad32-60d2feb4ea12' }
 

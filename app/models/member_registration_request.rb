@@ -34,6 +34,10 @@ class MemberRegistrationRequest < ApplicationRecord
     end
   end
 
+  def refuse!(user:, refused_at: Time.current)
+    update(refused_at: refused_at, refused_by: user)
+  end
+
   private
 
   def set_identifier

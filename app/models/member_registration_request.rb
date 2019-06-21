@@ -4,9 +4,10 @@ class MemberRegistrationRequest < ApplicationRecord
   belongs_to :accepted_by, class_name: 'User', optional: true
   belongs_to :refused_by, class_name: 'User', optional: true
 
-  before_create :set_identifier
+  before_validation :set_identifier
 
   validates :email, email: true
+  validates :identifier, presence: true
   validates :first_name, :last_name, :date_of_birth,
             presence: true, if: proc { |m| m.step > 1 }
   validates :address, :city, presence: true, if: proc { |m| m.step > 2 }

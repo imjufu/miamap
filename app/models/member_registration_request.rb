@@ -15,6 +15,10 @@ class MemberRegistrationRequest < ApplicationRecord
   }
   validate :not_already_a_member
 
+  def full_name
+    "#{first_name&.capitalize} #{last_name&.upcase}"
+  end
+
   private
 
   def set_identifier

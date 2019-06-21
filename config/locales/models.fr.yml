@@ -13,10 +13,12 @@ fr:
         email: Courriel
         first_name: Prénom
         last_name: Nom
+        full_name: Nom complet
         date_of_birth: Date de naissance
         address: Adresse
         postal_code: Code postal
         city: Ville
+        created_at: Enregistrée le
       user:
         email: Courriel
         first_name: Prénom

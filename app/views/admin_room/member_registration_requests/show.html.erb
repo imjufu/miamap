@@ -1,0 +1,18 @@
+<div class="d-flex align-items-center mb-3">
+  <h1 class="h1 mr-2"><%= @member_registration_request.email %></h1>
+</div>
+
+<dl class="row">
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.full_name') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.full_name %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.date_of_birth') %></dt>
+  <dd class="col-sm-9"><%= humanize_dt @member_registration_request.date_of_birth %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.email') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.email %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.address') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.address %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.postal_code') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.postal_code %></dd>
+  <dt class="col-sm-3"><%= t('activerecord.attributes.member_registration_request.city') %></dt>
+  <dd class="col-sm-9"><%= @member_registration_request.city %></dd>
+</dl>

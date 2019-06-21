@@ -3,6 +3,7 @@
 class MemberRegistrationRequest < ApplicationRecord
   belongs_to :accepted_by, class_name: 'User', optional: true
   belongs_to :refused_by, class_name: 'User', optional: true
+  belongs_to :member, optional: true
 
   before_validation :set_identifier
 

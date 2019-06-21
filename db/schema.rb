@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_093024) do
+ActiveRecord::Schema.define(version: 2019_06_21_123551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2019_06_14_093024) do
     t.bigint "accepted_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "member_id"
     t.index ["accepted_by_id"], name: "index_member_registration_requests_on_accepted_by_id"
     t.index ["identifier"], name: "index_member_registration_requests_on_identifier", unique: true
+    t.index ["member_id"], name: "index_member_registration_requests_on_member_id"
     t.index ["refused_by_id"], name: "index_member_registration_requests_on_refused_by_id"
   end
 
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_093024) do
   end
 
   add_foreign_key "contracts", "producers"
+  add_foreign_key "member_registration_requests", "members"
   add_foreign_key "member_registration_requests", "users", column: "accepted_by_id"
   add_foreign_key "member_registration_requests", "users", column: "refused_by_id"
   add_foreign_key "memberships", "members"

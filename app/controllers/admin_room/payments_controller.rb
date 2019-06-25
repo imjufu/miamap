@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class PaymentsController < AdminController
+  class PaymentsController < AdminRoomController
     load_and_authorize_resource :subscription
     load_and_authorize_resource :payment, through: :subscription
 

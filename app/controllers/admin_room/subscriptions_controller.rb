@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class SubscriptionsController < AdminController
+  class SubscriptionsController < AdminRoomController
     load_and_authorize_resource
 
     # GET /subscriptions

@@ -28,6 +28,7 @@ fr:
     producers_html: <i class="fas fa-tractor"></i> Producteur·trices
     subscriptions_html: <i class="fas fa-file-signature"></i> Souscriptions
     membership_forms: Fiches d'adhésion
+    my_contracts: Mes contrats
   errors:
     messages:
       saving_failed:

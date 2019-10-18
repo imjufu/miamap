@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class MembershipsController < AdminController
+  class MembershipsController < AdminRoomController
     load_and_authorize_resource :member
     load_and_authorize_resource :membership, through: :member
 

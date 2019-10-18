@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class MembershipFormsController < AdminController
+  class MembershipFormsController < AdminRoomController
     load_and_authorize_resource
 
     # GET /membership_forms

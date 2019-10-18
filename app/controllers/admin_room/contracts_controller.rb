@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class ContractsController < AdminController
+  class ContractsController < AdminRoomController
     load_and_authorize_resource :producer
     load_and_authorize_resource :contract, through: :producer
 

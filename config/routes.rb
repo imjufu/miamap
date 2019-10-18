@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :member_room do
     root to: 'welcome#index'
+    resources :subscriptions, only: %i[index show]
   end
 
   devise_for :users, path: 'admin_room'

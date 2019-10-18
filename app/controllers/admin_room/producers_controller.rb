@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class ProducersController < AdminController
+  class ProducersController < AdminRoomController
     load_and_authorize_resource
 
     # GET /producers

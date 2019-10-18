@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdminRoom
-  class UsersController < AdminController
+  class UsersController < AdminRoomController
     include RemoveBlankPasswordConcern
 
     load_and_authorize_resource

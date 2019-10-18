@@ -1,3 +1,4 @@
 # frozen_string_literal: true
 
-json.partial! 'subscriptions/subscription', subscription: @subscription
+json.partial! 'admin_room/subscriptions/subscription',
+              subscription: @subscription

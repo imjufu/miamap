@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-shared_examples_for 'a private action' do
+shared_examples_for 'a private action' do |session_type = :admin|
   context 'when the user is not logged in' do
     before { action }
     it 'redirects to login page' do
-      expect(response).to redirect_to(new_user_session_path)
+      path = session_type == :member ? new_member_session_path : new_user_session_path
+      expect(response).to redirect_to(path)
     end
   end
 end

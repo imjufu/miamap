@@ -1,24 +1,21 @@
-require: rubocop-performance
+require:
+  - rubocop-rails
 
 AllCops:
   TargetRubyVersion: 2.6
-  TargetRailsVersion: 5.2
   DisplayCopNames: true
   Exclude:
     - 'bin/**/*'
     - 'node_modules/**/*'
     - 'db/**/*'
 
-Rails:
-  Enabled: true
-
-Documentation:
+Style/Documentation:
   Enabled: false
 
 Style/EmptyMethod:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Exclude:
     - 'app/controllers/**/*'
     - 'spec/**/*'

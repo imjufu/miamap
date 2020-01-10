@@ -121,5 +121,5 @@ end
 
 # Rails.application.config.middleware.use Apartment::Elevators::Domain
 # Rails.application.config.middleware.use Apartment::Elevators::Subdomain
-Rails.application.config.middleware.insert_before Warden::Manager, Apartment::Elevators::FirstSubdomain # rubocop:disable Metrics/LineLength
+Rails.application.config.middleware.insert_before Warden::Manager, Apartment::Elevators::FirstSubdomain # rubocop:disable Layout/LineLength
 # Rails.application.config.middleware.use Apartment::Elevators::Host

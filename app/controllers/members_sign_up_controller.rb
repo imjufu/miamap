@@ -5,7 +5,9 @@ class MembersSignUpController < ApplicationController
 
   # GET /members_sign_up/step_1
   def step_1
-    redirect_to(send("members_sign_up_step_#{@registration_request.step}_path")) if @registration_request
+    if @registration_request
+      redirect_to(send("members_sign_up_step_#{@registration_request.step}_path"))
+    end
 
     @registration_request = MemberRegistrationRequest.new
   end

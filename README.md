@@ -4,7 +4,7 @@
 
 ### Prérequis
 
-* Ruby >= 2.5
+* Ruby >= 2.6
   * Gems : bundler
 * Docker >= 17.0
 
@@ -36,7 +36,7 @@ $ bundle exec rails s
 
 La partie application pour l'AMAP `La Guill'AMAP` est accessible à : http://guillamap.miamap.local:3000  
 
-### Qualité logicielle 
+### Qualité logicielle
 
 ```
 # Tests unitaires et fonctionnels

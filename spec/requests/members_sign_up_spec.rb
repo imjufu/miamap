@@ -64,7 +64,7 @@ RSpec.describe 'MembersSignUp', type: :request do
     end
 
     describe 'PATCH /members_sign_up/step_2' do
-      let(:params) { { member_registration_request: { first_name: 'Luke', last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(18, 65) } } }
+      let(:params) { { member_registration_request: { first_name: 'Luke', last_name: Faker::Name.last_name, date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65) } } }
       let(:action) { patch '/members_sign_up/step_2', params: params }
 
       before { start_registration }
@@ -100,7 +100,7 @@ RSpec.describe 'MembersSignUp', type: :request do
         registration_request = MemberRegistrationRequest.last
         registration_request.update(
           first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-          date_of_birth: Faker::Date.birthday(18, 65), step: 2
+          date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), step: 2
         )
         action
       end
@@ -123,7 +123,7 @@ RSpec.describe 'MembersSignUp', type: :request do
         registration_request = MemberRegistrationRequest.last
         registration_request.update(
           first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-          date_of_birth: Faker::Date.birthday(18, 65), step: 2
+          date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65), step: 2
         )
       end
 
@@ -158,7 +158,7 @@ RSpec.describe 'MembersSignUp', type: :request do
         registration_request = MemberRegistrationRequest.last
         registration_request.update(
           first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
-          date_of_birth: Faker::Date.birthday(18, 65),
+          date_of_birth: Faker::Date.birthday(min_age: 18, max_age: 65),
           address: Faker::Address.street_address, postal_code: Faker::Address.postcode,
           city: Faker::Address.city, step: 3
         )

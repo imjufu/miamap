@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AdminRoomController < ActionController::Base
+class AdminRoomController < ApplicationController
   before_action :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|

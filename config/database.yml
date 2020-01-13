@@ -25,6 +25,10 @@ development: &development
   <<: *default
   database: miamap_development
 
+  # FIX: Ruby 2.6.5 and PostgreSQL pg-gem segmentation fault
+  # @see https://stackoverflow.com/questions/59089991/ruby-2-6-5-and-postgresql-pg-gem-segmentation-fault
+  gssencmode: disable
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is

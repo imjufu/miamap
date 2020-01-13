@@ -19,7 +19,7 @@ RSpec.describe 'MembersSignUp', type: :request do
       end
 
       it 'displays the step 1 page' do
-        expect(response.body).to match('Nous sommes très heureux de vous accueillir parmis nous…')
+        expect(response.body).to match('Nous sommes très heureux de vous accueillir parmi nous…')
       end
     end
 
@@ -170,7 +170,7 @@ RSpec.describe 'MembersSignUp', type: :request do
       end
 
       it 'displays the step 4 page' do
-        expect(response.body).to match('votre pr.*-inscription vient d&#39;.*tre transmise')
+        expect(response.body).to match('votre pr.*-inscription vient de nous .*tre transmise')
       end
     end
 

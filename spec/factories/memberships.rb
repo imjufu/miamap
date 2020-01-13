@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :membership do
     membership_form
     member
-    membershiped_at { Faker::Date.backward(14) }
+    membershiped_at { Faker::Date.backward(days: 14) }
   end
 end

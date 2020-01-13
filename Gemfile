@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -93,8 +93,7 @@ group :development do
   # Preview email in the default browser instead of sending it
   gem 'letter_opener'
   # RuboCop is a Ruby static code analyzer
-  gem 'rubocop'
-  gem 'rubocop-performance'
+  gem 'rubocop-rails'
   # Access an interactive console on exception pages or by calling 'console'
   # anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'

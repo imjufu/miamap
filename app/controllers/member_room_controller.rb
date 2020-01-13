@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MemberRoomController < ActionController::Base
+class MemberRoomController < ApplicationController
   before_action :authenticate_member!
   alias current_user current_member
 

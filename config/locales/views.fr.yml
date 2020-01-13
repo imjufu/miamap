@@ -25,4 +25,4 @@ fr:
       title_html: Et où habitez-vous %{first_name} ? <i class="fas fa-home"></i>
       next: Continuer
     step_4:
-      congratulations: Merci %{first_name}, votre pré-inscription vient d'être transmise à un·e amapien·ne !
+      congratulations: Merci %{first_name}, votre pré-inscription vient de nous être transmise !

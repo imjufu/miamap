@@ -82,6 +82,19 @@ RSpec.describe MemberRegistrationRequest, type: :model do
         expect(subject.refuse(user: user, refused_at: now)).to eq(false)
       end
     end
+
+    context 'when the member already exists' do
+      before do
+        Member.create!(
+          subject.as_json(only: %i[first_name last_name date_of_birth email address postal_code city])
+                 .merge(password: 'password')
+        )
+      end
+
+      it 'returns true' do
+        expect(subject.refuse(user: user, refused_at: now)).to eq(true)
+      end
+    end
   end
 
   describe '#set_identifier' do

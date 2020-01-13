@@ -15,13 +15,14 @@ class MemberRegistrationRequest < ApplicationRecord
   validates :postal_code, postal_code: { country: :fr }, if: proc { |m|
     (m.step || 0) > 2
   }
-  validate :not_already_a_member
+  validate :not_already_a_member, unless: proc { |m| m.dont_check_members }
 
   scope :not_accepted_or_refused_yet, lambda {
     where(accepted_at: nil).where(refused_at: nil)
   }
 
   accepts_nested_attributes_for :member
+  attr_accessor :dont_check_members
 
   def full_name
     "#{first_name&.capitalize} #{last_name&.upcase}"
@@ -41,6 +42,7 @@ class MemberRegistrationRequest < ApplicationRecord
   def refuse(user:, refused_at: Time.current)
     return false if already_accepted_or_refused?
 
+    self.dont_check_members = true
     update(refused_at: refused_at, refused_by: user)
   end
 
